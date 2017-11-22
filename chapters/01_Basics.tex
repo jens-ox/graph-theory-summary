@@ -1,0 +1,148 @@
+\section{Basics}
+
+\paragraph{Notations}
+\begin{itemize}
+  \item $ \left( \begin{smallmatrix}
+    V \\ k
+  \end{smallmatrix} \right) \coloneqq \{ A : A \subseteq V \wedge \vert A \vert = k \} $
+  \item $ [n] \coloneqq \{ 1, \dots, n \} \subset \N $
+  \item \textbf{Power set} $ 2^X \coloneqq \{ A : A \subseteq X \} $
+\end{itemize}
+
+\paragraph{Graph}
+\begin{itemize}
+  \item \textbf{Definition}: $ G = (V,E) $ with vertex set $ V $ and edge set $ E \subseteq \{ \{ u,v \} : u,v \in V, u \neq v \} $
+  \item \textbf{Vertex set}: $ V(G) $
+  \item \textbf{Edge set}: $ E(G) $
+  \item \textbf{Isomorphic} ($ G_1 $ to another graph $ G_2 $): if $ \exists $ bijection $ f: V_1 \to V_2 $ with \\*
+    $ \{ u,v \} \in E_1 \Leftrightarrow \{ f(u),f(v) \} \in E_2 $
+  \item \textbf{Order}: $ = \vert V(G) \vert $, short $ \vert G \vert $
+  \item \textbf{Size}: $ = \vert E(G) \vert $, short $ \Vert G \Vert $
+  \item \textbf{Degree sequence}: multiset of degrees of vertices in $ V(G) $
+  \begin{itemize}
+    \item \emph{graphic}: deg. seq. $ (d_1, \dots, d_n) $, iff
+    \begin{enumerate}
+       \item $ d_1 + \cdots + d_n $ even
+       \item $ \sum_{i=1}^k d_i \leq k(k-1) + \sum{i = k+1}^n \min(d_i,k) $ \quad ($ \forall 1 \leq k \leq n $)
+     \end{enumerate} 
+  \end{itemize}
+  \item \textbf{Degree sum}: $ \sum_{v \in V(G)} \deg(v) = 2\vert E(G) \vert $
+  \item \textbf{Minimum degree}: $ \delta(G) = $ degree of $ v \in V(G) $ with smallest degree
+  \item \textbf{Maximum degree}: $ \Delta(G) = $ degree of $ v \in V(G) $ with largest degree
+  \item \textbf{Adjacency matrix}: $ A(G) = \R^{n \times n} \ni A_{i,j} = \begin{cases}
+    1, & ij \in E \\
+    0, & \text{else}
+  \end{cases} $
+  \item \textbf{Eulerian}: if it contains an Eulerian tour
+\end{itemize}
+
+\paragraph{Digraph}
+\begin{itemize}
+  \item \textbf{Definition}: $ G = (V,E) $ with vertex set $ V $ and edge set $ E \subseteq \{ (u,v) : u,v \in V, u \neq v \} $
+\end{itemize}
+
+\paragraph{Multigraph}
+\begin{itemize}
+  \item \textbf{Definition}: $ G = (V,E) $ with vertex set $ V $ and multiset $ E $ of $ V $-pairs
+\end{itemize}
+
+\paragraph{Hypergraph}
+\begin{itemize}
+  \item \textbf{Definition}: $ G = (V,E) $ with vertex set $ V $ and edge set $ E \subseteq 2^V = \{ A : A \subseteq V \} $
+\end{itemize}
+
+\paragraph{Vertex}
+\begin{itemize}
+  \item \textbf{Incident} to $ e \in E(G) $ if $ v \in e $
+  \item \textbf{Adjacent} to $ \widetilde{v} \in V(G) $ if $ \{ v, \widetilde{v} \} \in E(G) $
+  \item \textbf{Neighborhood}: $ N(v) = \{ u: uv \in E(G) \} $
+  \item \textbf{Degree}: $ \deg(v) = \text{d}(v) = \vert N(v) \vert $
+  \item \textbf{Isolated}: vertex with $ \deg(v) = 0 $
+  \item \textbf{Leaf}: vertex with $ \deg(v) = 1 $
+\end{itemize}
+
+\paragraph{Edge}
+% TODO NEEDED?
+
+\paragraph{Subgraph}
+\begin{itemize}
+  \item \textbf{Definition}: $ H $ subgraph of $ G $ (write $ H \subseteq G $) if $ V(H) \subseteq V(G) \wedge E(H) \subseteq E(G) $
+  \item \textbf{Induced subgraph}: $ H $ induced subgraph of $ G $ (write $ H \underset{\text{ind}}{\subseteq} G $), if $ H \subseteq G $ and $ E(H) $ contains all edges from $ E(G) $ between vertices in $ V(H) $
+  \item \textbf{Edge-induced subgraph}: subgraph induced by $ X \subseteq E(G) $, note $ G[X] $
+\end{itemize}
+
+\paragraph{Spanning graph}
+\begin{itemize}
+  \item \textbf{Definition}: Subgraph with same vertex set as supergraph 
+\end{itemize}
+
+\paragraph{Cycle}
+\begin{itemize}
+  \item \textbf{Definition}: $ C_n \coloneqq (\{ v_1, \dots, v_n \}, \{ \{ v_1, v_2 \},\dots,\{ v_{n-1},v_n \},\{ v_n, v_1 \} \}) $
+  \item \textbf{Shorthand}: $ (v_1, \dots, v_n, v_1) $
+  \item \textbf{Length} (of cycle): $ = \vert V \vert \equiv \vert E \vert $
+  \item \textbf{Cyclic subgraph}: If $ \delta(G) \geq 2 $, then $ G $ has cycle with length $ \geq \delta + 1 $
+\end{itemize}
+
+\paragraph{Path}
+\begin{itemize}
+  \item \textbf{Definition}: $ (\{ v_1, \dots, v_n \}, \{ \{ v_1, v_2 \}, \dots, \{ v_{n-1},v_n \} \}) $
+  \item \textbf{Shorthand}: $ (v_1, \dots, v_n) $
+  \item \textbf{Length} (of path): $ = \vert E \vert \neq \vert V \vert $
+  \item \textbf{$ v_0v_k $-path}: path starting at $ v_0 $ and ending at $ v_k $
+\end{itemize}
+
+\paragraph{Walk}
+\begin{itemize}
+  \item \textbf{Definition}: non-empty alternating sequence of vertices and edges
+    \begin{equation*}
+      v_0e_0\dots e_{k-1}v_k
+    \end{equation*}
+    with $ e_i = v_iv_{i+1} $, length $ k \in \N $
+    \begin{itemize}
+      \item \emph{closed}: if $ v_0=v_k $
+      \item \emph{even}: if $ k $ is even
+      \item \emph{odd}: if $ k $ is odd
+    \end{itemize}
+  \item \textbf{Eulerian tour}:
+  \begin{itemize}
+    \item \emph{Definition}: closed walk with
+    \begin{itemize}
+      \item no edges of $ G $ are repeatedly used
+      \item all edges of $ G $ are used 
+    \end{itemize}
+    \item \emph{Even degrees}: $ G $ connected has Euler tour $ \Leftrightarrow \forall v \in V(G) : \deg(v) $ even
+  \end{itemize}
+  \item \textbf{$ v_0v_k $-walk}: walk starting at $ v_0 $ and ending at $ v_k $
+  \item \textbf{Induces path}: $ \exists \ uv\text{-walk} \Rightarrow \ \exists \ uv\text{-path} $
+  \item \textbf{Odd closed walk, odd cycle}: $ G $  has \emph{odd} closed walk $ \Rightarrow $ $ G $ has odd cycle
+\end{itemize}
+
+\paragraph{Connected component}
+\begin{itemize}
+  \item \textbf{Definition}: \emph{maximal} connected subgraph (connected, but any supergraph isn't)
+\end{itemize}
+
+\paragraph{Acyclic graph, Forest}
+\begin{itemize}
+  \item \textbf{Definition}: Graph with no cycle as subgraph
+\end{itemize}
+
+\paragraph{Tree}
+\begin{itemize}
+  \item \textbf{Definition}: Graph that is connected and acyclic
+  \item \textbf{Special trees}: path, star, spider, caterpillar, broom
+\end{itemize}
+
+\paragraph{k-regular graph}
+\begin{itemize}
+  \item \textbf{Definition}: Graph with $ \deg(v) = k \in \N_0 \quad (\forall v \in V(G)) $
+\end{itemize}
+
+% TODO MISSING COMPLETE BIPARTITE GRAPH
+
+% TODO MISSING KNESER GRAPH
+
+% TODO MISSING PETERSON GRAPH
+
+% TODO MISSING HYPERCUBE
