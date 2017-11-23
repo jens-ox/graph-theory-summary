@@ -130,4 +130,7 @@
 \AtBeginDocument{\belowdisplayskip=0pt}
 \AtBeginDocument{\belowdisplayshortskip=0pt}
 
+% no page numbering
+\pagenumbering{gobble}
+
 \endinput
