@@ -18,6 +18,9 @@
     $ \{ u,v \} \in E_1 \Leftrightarrow \{ f(u),f(v) \} \in E_2 $
   \item \textbf{Order}: $ = \vert V(G) \vert $, short $ \vert G \vert $
   \item \textbf{Size}: $ = \vert E(G) \vert $, short $ \Vert G \Vert $
+  \item \textbf{Complement}: $ \overline{G} = (V(G), \left( \begin{smallmatrix}
+    V \\ 2
+  \end{smallmatrix} \right)-E(G)) $
   \item \textbf{Degree sequence}: multiset of degrees of vertices in $ V(G) $
   \begin{itemize}
     \item \emph{graphic}: deg. seq. $ (d_1, \dots, d_n) $, iff
@@ -71,11 +74,18 @@
   \item \textbf{Definition}: $ H $ subgraph of $ G $ (write $ H \subseteq G $) if $ V(H) \subseteq V(G) \wedge E(H) \subseteq E(G) $
   \item \textbf{Induced subgraph}: $ H $ induced subgraph of $ G $ (write $ H \underset{\text{ind}}{\subseteq} G $), if $ H \subseteq G $ and $ E(H) $ contains all edges from $ E(G) $ between vertices in $ V(H) $
   \item \textbf{Edge-induced subgraph}: subgraph induced by $ X \subseteq E(G) $, note $ G[X] $
+  \item \textbf{Subgraph separation}: $ X \subset V(G) $ separates $ A,B \subset V(G) \Leftrightarrow $ any $ A $-$ B $-path has vertex in $ X $
 \end{itemize}
 
 \paragraph{Spanning graph}
 \begin{itemize}
   \item \textbf{Definition}: Subgraph with same vertex set as supergraph 
+\end{itemize}
+
+\paragraph{Line graph}
+\begin{itemize}
+  \item \textbf{Definition}: $ L(G) = (E, \{ \{ e, e' \} : e \cap e' \neq \varnothing \}) $ 
+  \item \textbf{Graphic}: $ L $ is line graph of some $ G $, if it doesn't contain one of 9 specific induced subgraphs
 \end{itemize}
 
 \paragraph{Vertex cover}
@@ -97,6 +107,7 @@
   \item \textbf{Shorthand}: $ (v_1, \dots, v_n) $
   \item \textbf{Length} (of path): $ = \vert E \vert \neq \vert V \vert $
   \item \textbf{$ v_0v_k $-path}: path starting at $ v_0 $ and ending at $ v_k $
+  \item \textbf{Independent}: two $ ab $-paths are independent $ \Leftrightarrow $ they only share $ a $ and $ b $
 \end{itemize}
 
 \paragraph{Walk}
@@ -130,6 +141,20 @@
   \item \textbf{Definition}: \emph{maximal} connected subgraph (connected, but any supergraph isn't)
 \end{itemize}
 
+\paragraph{Block}
+\begin{itemize}
+  \item \textbf{Block}: maximal $ 2 $-connected subgraph or bridge
+  \begin{itemize}
+     \item share $ \leq 1 $ vertices with one another 
+   \end{itemize} 
+   \item \textbf{Block-cut-vertex graph}
+   \begin{itemize}
+     \item $ V = $ set of blocks $ \cup $ set of vertices
+     \item $ E = \{ \{ v,B \} : v \in V(B) \text{, cut-vertex $ v $, block $ B $} \} $ 
+     \item block-cut-vertex graph of connected graph is tree
+   \end{itemize}
+\end{itemize}
+
 \paragraph{Acyclic graph, Forest}
 \begin{itemize}
   \item \textbf{Definition}: Graph with no cycle as subgraph
@@ -149,7 +174,7 @@
     \item $ \Leftrightarrow \forall u,v \in V(G) \ \exists $ unique $ uv $-path
   \end{itemize}
   \item \textbf{Special trees}: path, star, spider, caterpillar, broom
-  \item \textbf{Leaf existance}: Tree $ T $, $ \vert T \vert \geq 2 \Rightarrow T $ has leaf
+  \item \textbf{Leaf existence}: Tree $ T $, $ \vert T \vert \geq 2 \Rightarrow T $ has leaf
   \item \textbf{Edge count}: Tree $ T $, $ \vert T \vert = n \Rightarrow \Vert T \Vert = n-1 $ 
 \end{itemize}
 
@@ -185,15 +210,19 @@
   \item \textbf{Definition}: graph with $ \delta(G) = \Delta(G) = 1 $ 
   \item \textbf{Perfect matching}: spanning + matching subgraph of $ G $ (aka \emph{1-factor})
   \begin{itemize}
-    \item \emph{Existance}: $ G $ has perfect matching $ \Leftrightarrow \forall S \subseteq V(G) : q(G-S) \leq S $ \\*
+    \item \emph{existence}: $ G $ has perfect matching $ \Leftrightarrow \forall S \subseteq V(G) : q(G-S) \leq S $ \\*
       ($ q(G) = $ number of components in $ G $ with odd order) 
   \end{itemize}
   % TODO STABLE MATCHINGS
 \end{itemize}
 
-\paragraph{Proper coloring}
+\paragraph{Coloring}
 \begin{itemize}
-  \item \textbf{Definition}: $ = c : V(G) \to [k] $ with $ c(u) \neq c(v) \quad (\forall uv \in E(G)) $
+  \item \textbf{Proper coloring}: $ = c : V(G) \to [k] $ with $ c(u) \neq c(v) \quad (\forall uv \in E(G)) $
+  \item \textbf{Equitable coloring}: proper coloring + color classes have almost ($ \pm 1 $) equal size
+  \begin{itemize}
+    \item \emph{existence}: any graph has equitable coloring in $ (\Delta(G) + 1) $ colors 
+  \end{itemize}
 \end{itemize}
 
 \paragraph{Chromatic number}
@@ -204,5 +233,66 @@
 
 \paragraph{Factors}
 \begin{itemize}
-  \item \textbf{k-factor} (in $ G $): spanning $ k $-regular subgraph (easy to find) 
+  \item \textbf{k-factor}: spanning $ k $-regular subgraph (easy to find) 
+  \item \textbf{f-factor}: spanning subgraph $ H \subseteq G $ with $ \deg_H(v) = f(v) $, \\*
+  % TODO Kühn + Osthus on f-factors
+    $ f: V(G) \to \{ 0,1,\dots \} $ with $ f(v) \leq \deg(v) $ \quad ($ \forall v \in V $)
+  \item \textbf{H-factor} (aka \emph{perfect $ H $-packing}): spanning subgraph s.t. each component is $ \cong H $
+  \begin{itemize}
+    \item \emph{existence}: if $ \delta(G) \geq \left( 1 - \tfrac{1}{k}\vert V(G) \vert \right) $ and $ k $ divides $ \vert G \vert $, then $ G $ has $ K_k $-factor
+  \end{itemize}
+  % TODO f-factors in G <=> 1-factors in T(G,f)
+\end{itemize}
+
+\paragraph{Connectivity}
+\begin{itemize}
+  \item \textbf{$ k $-connected}: if $ \vert G \vert > k $ and deleting $ < k $ vertices does not disconnect $ G $
+  \item \textbf{$ k $-linked}: if for any $ 2k $ vertices $ (s_1, \dots, s_k, t_1, \dots, t_k) \ \exists $ pairwise disjoint $ s_it_i $-paths (\emph{note}: $ k $-connected $ \not \Rightarrow k $-linked)
+  % TODO Wollan 2005: 10k-connected => k-linked
+  \item \textbf{Vertex-connectivity}: $ \kappa(G) = \max\{ k : \text{$ G $ is $ k $-connected} \} $
+  \item \textbf{$ l $-edge-connected}: if deleting $ < l $ edges does not disconnect $ G $
+  \item \textbf{Edge-connectivity}: $ \kappa'(G) = \max\{ l : \text{$ G $ is $ l $-edge-connected} \} $
+  \item \textbf{Vertex- vs Edge-connectivity}: $ \kappa(G) \leq \kappa'(G) \leq \delta(G) $
+  \item \textbf{Three-connected + contraction}: $ 3 $-connected $ \Leftrightarrow \ \exists $ separate $ G_0, \dots, G_k $ with
+  \begin{equation*}
+    G_0 = K_4, \ G_k = G, \ G_i = G_{i+1} \circ xy
+  \end{equation*}
+  with $ \deg(x), \deg(y) \geq 3 $
+  \item \textbf{Three-connected + decontraction}: all $ 3 $-connected graphs can be built by iteratively de-contracting vertices of $ K_4 $
+  \item \textbf{Average degree $ \geq 4 $}: has $ k $-connected subgraph ($ k \geq 2 $)
+\end{itemize}
+
+\paragraph{Cuts}
+\begin{itemize}
+  \item \textbf{Cut-Set}: $ X \subseteq V(G) \cup E(G) $ s.t. \#components in $ (G-X) $ greater than in $ G $ 
+  \item \textbf{Cut-Vertex}: Cut-Set consisting of single vertex
+  \item \textbf{Cut-Edge} (or \emph{bridge}): Cut-Set consisting of single edge
+  % TODO bipartite edge-cuts (not found in script)
+  \item \textbf{Menger's theorem}: for $ A,B \subseteq V(G) $:
+    \begin{equation*}
+      \text{min \# of vertices separating $ A $ and $ B $} = \text{max \# of disjoint $ A $-$ B $-paths}
+    \end{equation*}
+  \item \textbf{Menger global}:
+    \begin{enumerate}
+      \item \emph{$ k $-connected} $ \Leftrightarrow \forall a,b \in V(G) \ \exists \ k $ pairwise independent $ ab $-paths
+      \item \emph{$ k $-edge-connected} $ \Leftrightarrow \forall a,b \in V(G) \ \exists \ k $ pairwise edge-disjoint $ ab $-paths 
+    \end{enumerate}
+\end{itemize}
+
+\paragraph{Ear-decomposition}
+\begin{itemize}
+  \item \textbf{Definition}: $ G $ has \emph{ear-decomposition} $ \Leftrightarrow \ \exists $ sequence of graphs $ G_0, \dots, G_k $ with $ G_k = G $, $ G_0 = $ cycle, $ G_{i+1} $ obtained from $ G_i $ by attaching ``ear'' (path that shares only endpoints with $ G_i $)
+  \item \textbf{2-connected} $ \Leftrightarrow \forall $ cycles $ C $ in $ G $ there is ear-decomposition starting at $ C $
+\end{itemize}
+
+\paragraph{Edge contraction}
+\begin{itemize}
+  \item \textbf{Contraction}:
+  \begin{multline*}
+    G \circ xy = ((V \setminus \{ x,y \}) \cup v_{xy}, \\
+      (E \setminus \{ e: x \in E \vee y \in e \}) \cup \{ v_{xy}z : z \in (N_G(x) \cup N_G(y))\setminus \{ x,y \} \})
+  \end{multline*}
+  with $ xy \in E(G) $
+  \item \textbf{De-contraction}: if $ \exists \ xy \in E(G) : \kappa(G \circ xy) \geq 3 $ \\*
+    (for $ G $ with $ \kappa(G) \geq 3 $, $ \vert G \vert \geq 5 $) 
 \end{itemize}
