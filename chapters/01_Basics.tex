@@ -296,3 +296,65 @@
   \item \textbf{De-contraction}: if $ \exists \ xy \in E(G) : \kappa(G \circ xy) \geq 3 $ \\*
     (for $ G $ with $ \kappa(G) \geq 3 $, $ \vert G \vert \geq 5 $) 
 \end{itemize}
+
+\paragraph{Planar graph tools}
+\begin{itemize}
+  \item \textbf{Homeomorphism}: $ f: \R^n \to \R^n $ continuous s.t. $ f^{-1} $ is also continuous 
+  \item \textbf{Arc}: homeomorphic image of $ [0,1] $ in $ \R^2 $ under $ f $
+  \begin{itemize}
+    \item \emph{endpoints}: $ f(0) $ and $ f(1) $ $ \leadsto $ arc ``joins'' endpoints
+    \item \emph{polynomial arc}: arc that is union of finitely many straight line segments
+  \end{itemize}
+  \item \textbf{Region} $ Y \subseteq \R^2 \setminus X $: any two points $ \in Y $ could be joined by arc and $ Y $ is maximal ($ X \subseteq \R^2 $)
+  \item \textbf{Boundary} of $ X \subseteq \R^2 $:
+    \begin{equation*}
+      \delta X = \{ y \mid \forall \epsilon > 0 : B(y, \epsilon) \text{ contains points of $ X $ and not of $ X $} \}
+    \end{equation*}
+  \item \textbf{Jordan curve theorem}: If $ X \subseteq \R^2 $ and homeomorphic to $ \{ \overline{x} : \text{dist}(\overline{x}, 0) = 1 \} $ (\emph{unit circle}), then $ \R^2 \setminus X $ has two regions $ R_1 $, $ R_2 $ and $ \delta R_1 = X = \delta R_2 $.
+\end{itemize}
+
+\paragraph{Plane graph}
+\begin{itemize}
+  \item \textbf{Definition}: graph such that $ E(G) $ is set of arcs in $ \R^2 $ and endpoints of arcs in $ E(G) $ are vertices and:
+  \begin{itemize}
+    \item $ \forall e, e' \in E $, $ e \neq e' $: $ e $ and $ e' $ have distinct sets of edge sets
+    \item $ \forall e \in E $, $ \mathring{e} = e \setminus \{ \text{endpoints} \} $ doesn't contain any vertices and points from other arcs 
+  \end{itemize}
+  \item \textbf{Faces}: regions of $ \R^2 \setminus \left( \bigcup_{e \in E} e \cup V \right) $
+  \item \textbf{Edge limitation 1}: Plane graph: $ \vert G \vert \geq 3 \Rightarrow \Vert G \Vert \leq 3n-6 $
+  \item \textbf{Edge limitation 2}: Plane graph with no $ \triangle $: $ \Vert G \Vert \leq 2\vert G \vert - 4 $
+\end{itemize}
+
+\paragraph{Planar graph}
+\begin{itemize}
+  \item \textbf{Definition}: graph s.t. $ \exists $ plane graph $ G' $ and bijection $ f: V(G) \to V(G') $ s.t. $ \forall u,v \in V(G), \ uv \in E(G) : f(u), \ f(v) $ are endpoints of arc in $ G' $
+  \item \textbf{Planar embedding} of $ G $: $ f $ from the definition
+  \item \textbf{Planar because of minors}: The following statements are equivalent:
+  \begin{itemize}
+    \item $ G $ is planar 
+    \item $ G \not \supseteq MK_5 \wedge G \not \supseteq MK_{3,3} $
+    \item $ G \not \supseteq TK_5 \wedge G \not \supseteq TK_{3,3} $
+  \end{itemize}
+  \item \textbf{Euler's formula}: If $ G $ is connected plane graph with $ f $ faces, then
+    \begin{equation*}
+      \vert G \vert - \Vert G \Vert + f = 2
+    \end{equation*}
+  \item \textbf{$ \delta(G) $ limitation}: Planar graph $ \delta(G) \leq 5 $
+  \item \textbf{Non-planar graphs}: $ K_5 $ and $ K_{3,3} $ are not planar
+\end{itemize}
+
+\paragraph{Minors}
+\begin{itemize}
+  \item \textbf{MH}: $ G \overset{(\star)}{=} MH $ is \emph{minor} of $ H $ if
+  \begin{itemize}
+    \item $ V(G) = V_1 \overset{\cdot}{\cup} \cdots \overset{\cdot}{\cup} V_n $ with $ n = \vert H \vert $
+    \item $ G[V_i] $ connected ($ \forall i = 1, \dots, n $)
+    \item If $ V(H) = \{ v_1, \dots, v_n \} $ and $ v_iv_j \in E(H) $, then $ \exists $ edge between $ V_i $ and $ V_j $
+  \end{itemize}
+  $ (\star) $: \emph{Notation abuse}: $ MH $ is class of graphs
+  \item \textbf{Branch sets}: $ V_i $'s from above
+  \item \textbf{Minor} ($ H $ of $ G $, noted $ H \preccurlyeq G $): $ \Leftrightarrow MH \subseteq G $ \\*
+    $ \leadsto H \preccurlyeq G \Leftrightarrow H $ can be obtained by edge/vertex deletions + contractions.
+  \item \textbf{Topological minor}: $ H $ is topological minor if $ TH \subseteq G $ where $ TH $ is built from $ H $ by subdividing edges
+  \item \textbf{Note}: $ TH \subseteq MH $
+\end{itemize}
