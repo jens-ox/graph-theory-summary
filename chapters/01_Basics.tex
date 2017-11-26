@@ -321,8 +321,26 @@
     \item $ \forall e \in E $, $ \mathring{e} = e \setminus \{ \text{endpoints} \} $ doesn't contain any vertices and points from other arcs 
   \end{itemize}
   \item \textbf{Faces}: regions of $ \R^2 \setminus \left( \bigcup_{e \in E} e \cup V \right) $
+  \item \textbf{Maximally plane}: no edges can be added without breaking planarity
+  \begin{itemize}
+    \item \emph{plane triangulation}: every face is bounded by triangle $ \Leftrightarrow $ graph is maximally plane 
+  \end{itemize}
   \item \textbf{Edge limitation 1}: Plane graph: $ \vert G \vert \geq 3 \Rightarrow \Vert G \Vert \leq 3n-6 $
   \item \textbf{Edge limitation 2}: Plane graph with no $ \triangle $: $ \Vert G \Vert \leq 2\vert G \vert - 4 $
+  \item \textbf{Properties}: Let $ G $ be plane graph and $ H \subseteq G $.
+  \begin{itemize}
+    \item \emph{face inheritance}: $ \forall f \in F(G) \ \exists \ f' \in F(H) : f' \supseteq f $ 
+    \item \emph{border inheritance}: $ \delta f \subseteq H \Rightarrow f' = f $
+    \item \emph{edge-border relations}: $ e \in E(G), f \in F(G) \Rightarrow e \subseteq \delta f \vee \delta f \cap \mathring{e} = \varnothing $
+    \item \emph{edges in circles}:
+      \begin{align*}
+        e \in E(G) \text{ is edge of a cycle } &\Rightarrow e \text{ is on boundary of exactly $ 2 $ faces} \\
+          \text{ not edge of a cycle} &\Rightarrow e \text{ is on boundary of exactly $ 1 $ face}
+      \end{align*}
+      \item \emph{faces in cycles}: $ f_1, f_2 \in F(G) $. $ f_1 \neq f_2 \wedge \delta f_1 = \delta f_2 \Rightarrow G $ is cycle
+      \item \emph{cyclic boundaries}: $ \kappa(G) \geq 2 \Rightarrow $ each face is bounded by cycle
+    \item \emph{plane forests}: plane forests have exactly $ 1 $ face
+  \end{itemize}
 \end{itemize}
 
 \paragraph{Planar graph}
@@ -341,6 +359,13 @@
     \end{equation*}
   \item \textbf{$ \delta(G) $ limitation}: Planar graph $ \delta(G) \leq 5 $
   \item \textbf{Non-planar graphs}: $ K_5 $ and $ K_{3,3} $ are not planar
+  \item \textbf{Kuratowski's lemmas}:
+  \begin{enumerate}
+    \item $ (TK_5 \subseteq G \vee TK_{3,3} \subseteq G) \Leftrightarrow MK_5 \subseteq G \vee MK_{3,3} \subseteq G $ 
+    \item $ \kappa(G) \geq 3 \wedge MK_5 \not \subseteq G \wedge MK_{3,3} \not \subseteq G \Rightarrow G $ is planar
+    \item $ \kappa(G) \geq 3 $, $ G $ edge-maximal wrt not containing $ TX $. If $ S $ is vertex-cut of $ G $, $ \vert S \vert \leq 2 \wedge G = G_1 \cup G_2 $, $ S = V(G_1) \cap V(G_2) $, then $ G_i $ is edge-maximal with no $ TX $ and $ S $ induces an edge
+    \item $ \vert G \vert \geq 3 $, $ G $ edge-maximal wrt not containing $ TK_5 $ and $ TK_{3,3} \Rightarrow \kappa(G) \geq 3 $
+  \end{enumerate}
 \end{itemize}
 
 \paragraph{Minors}
@@ -353,6 +378,7 @@
   \end{itemize}
   $ (\star) $: \emph{Notation abuse}: $ MH $ is class of graphs
   \item \textbf{Branch sets}: $ V_i $'s from above
+  \item \textbf{Extended branch graph}: Branch set together with incident edges
   \item \textbf{Minor} ($ H $ of $ G $, noted $ H \preccurlyeq G $): $ \Leftrightarrow MH \subseteq G $ \\*
     $ \leadsto H \preccurlyeq G \Leftrightarrow H $ can be obtained by edge/vertex deletions + contractions.
   \item \textbf{Topological minor}: $ H $ is topological minor if $ TH \subseteq G $ where $ TH $ is built from $ H $ by subdividing edges
