@@ -341,6 +341,13 @@
       \item \emph{cyclic boundaries}: $ \kappa(G) \geq 2 \Rightarrow $ each face is bounded by cycle
     \item \emph{plane forests}: plane forests have exactly $ 1 $ face
   \end{itemize}
+  \item \textbf{Dual multigraph}: Given plane $ G $:
+  \begin{enumerate}
+    \item Insert vertex in each face 
+    \item Put edge $ \tilde{e} $ between vertices if respective faces share $ e $ (s.t. $ \tilde{e} $ and $ e $ cross once)
+    \item \emph{Result}: Dual graph $ G' $ of $ G $ (plane multigraph)
+  \end{enumerate}
+  $ \leadsto $ faces of $ G $ properly $ k $-colored $ \Leftrightarrow \ \exists $ proper $ k $-coloring of vertices of $ G' $
 \end{itemize}
 
 \paragraph{Planar graph}
@@ -383,4 +390,11 @@
     $ \leadsto H \preccurlyeq G \Leftrightarrow H $ can be obtained by edge/vertex deletions + contractions.
   \item \textbf{Topological minor}: $ H $ is topological minor if $ TH \subseteq G $ where $ TH $ is built from $ H $ by subdividing edges
   \item \textbf{Note}: $ TH \subseteq MH $
+\end{itemize}
+
+\paragraph{Colorings}
+\begin{itemize}
+  \item \textbf{4-color-theorem}: $ G $ planar $ \Rightarrow \chi(G) \leq 4 $ 
+  \item \textbf{ij-flip}: $ c': V(G) \to [k] $ is $ ij $-flip at $ v \in V(G) $ \\*
+    $ \Leftrightarrow c' $ obtained by flipping colors $ i $ and $ j $ in max. conn. component containing $ v $
 \end{itemize}
