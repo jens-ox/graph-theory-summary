@@ -36,6 +36,7 @@
     1, & ij \in E \\
     0, & \text{else}
   \end{cases} $
+  \item \textbf{Incidence graph} of $ G $: $ IG = (V \cup E, \left\{ \{ v,e \} : v \in e, e \in E \right\}) $
   \item \textbf{Eulerian}: if it contains an Eulerian tour
   \item \textbf{Connected}: for any two vertices there is a link between them
   \begin{itemize}
@@ -216,21 +217,6 @@
   % TODO STABLE MATCHINGS
 \end{itemize}
 
-\paragraph{Coloring}
-\begin{itemize}
-  \item \textbf{Proper coloring}: $ = c : V(G) \to [k] $ with $ c(u) \neq c(v) \quad (\forall uv \in E(G)) $
-  \item \textbf{Equitable coloring}: proper coloring + color classes have almost ($ \pm 1 $) equal size
-  \begin{itemize}
-    \item \emph{existence}: any graph has equitable coloring in $ (\Delta(G) + 1) $ colors 
-  \end{itemize}
-\end{itemize}
-
-\paragraph{Chromatic number}
-\begin{itemize}
-  \item \textbf{Definition}: $ \chi(G) = \min\{ k: G \text{ has proper coloring with } k \text{ colors} \} $ 
-  \item \textbf{Examples}: $ \chi(C_{2n}) = 2 $, $ \chi(C_{2n+1}) = 3 $
-\end{itemize}
-
 \paragraph{Factors}
 \begin{itemize}
   \item \textbf{k-factor}: spanning $ k $-regular subgraph (easy to find) 
@@ -373,6 +359,11 @@
     \item $ \kappa(G) \geq 3 $, $ G $ edge-maximal wrt not containing $ TX $. If $ S $ is vertex-cut of $ G $, $ \vert S \vert \leq 2 \wedge G = G_1 \cup G_2 $, $ S = V(G_1) \cap V(G_2) $, then $ G_i $ is edge-maximal with no $ TX $ and $ S $ induces an edge
     \item $ \vert G \vert \geq 3 $, $ G $ edge-maximal wrt not containing $ TK_5 $ and $ TK_{3,3} \Rightarrow \kappa(G) \geq 3 $
   \end{enumerate}
+  \item \textbf{2-cell} (embedding of $ G $ on surface $ S $): any closed simple curve in any region of $ S - G $ is continuously contractible into a point
+  \item \textbf{Euler characteristic}: $ G $ embedded on surface $ S \Rightarrow n - e + f = $ \emph{Euler characteristic} is invariant
+  \item \textbf{Euler genus}: $ n - e + f = 2 - 2 \gamma \leadsto $ \emph{Euler genus} $ 2 \gamma $ of $ S $
+  \item \textbf{Heawood's formula}: $ \chi(G) \leq \underbrace{\left\lfloor \frac{7 + \sqrt{1 + 48 \gamma}}{2} \right\rfloor}_{f(\gamma)\text{, Heawoods number}} $ \\* (for $ G $ embedded on $ S $ with Euler char $ 2-2\gamma $)
+  \item \textbf{Klein bottle}: $ K_{f(\gamma)} $ is embeddable on $ S $, unless $ S $ is \emph{klein bottle}
 \end{itemize}
 
 \paragraph{Minors}
@@ -392,9 +383,52 @@
   \item \textbf{Note}: $ TH \subseteq MH $
 \end{itemize}
 
-\paragraph{Colorings}
+\paragraph{Coloring}
 \begin{itemize}
+  \item $ \alpha(G) = $ size of largest independent set
+  \item $ \omega(G) = $ clique number
+  \item \textbf{Proper coloring}: $ = c : V(G) \to [k] $ with $ c(u) \neq c(v) \quad (\forall uv \in E(G)) $
+  \item \textbf{Equitable coloring}: proper coloring + color classes have almost ($ \pm 1 $) equal size
+  \begin{itemize}
+    \item \emph{existence}: any graph has equitable coloring in $ (\Delta(G) + 1) $ colors 
+  \end{itemize}
   \item \textbf{4-color-theorem}: $ G $ planar $ \Rightarrow \chi(G) \leq 4 $ 
   \item \textbf{ij-flip}: $ c': V(G) \to [k] $ is $ ij $-flip at $ v \in V(G) $ \\*
     $ \Leftrightarrow c' $ obtained by flipping colors $ i $ and $ j $ in max. conn. component containing $ v $
+  \item 
+\end{itemize}
+
+\paragraph{Chromatic number}
+\begin{itemize}
+  \item \textbf{Definition}: $ \chi(G) = \min\{ k: G \text{ has proper coloring with } k \text{ colors} \} $ 
+  \item \textbf{Examples}: $ \chi(C_{2n}) = 2 $, $ \chi(C_{2n+1}) = 3 $
+  \item \textbf{Properties}:
+  \begin{itemize}
+    \item $ \chi(G) \geq \omega(G) $ 
+    \item $ \chi(G) \geq \frac{\vert G \vert}{\alpha(G)} $
+    \item $ \chi(G) \leq \Delta(G) + 1 $ (\emph{greedy coloring})
+    \item $ G $ connected, not complete, no odd cycles $ \Rightarrow \chi(G) \leq \Delta(G) $
+  \end{itemize}
+\end{itemize}
+
+\paragraph{Posets}
+\begin{itemize}
+  \item \textbf{Definition}: antisymmetric, reflexive, transitive relation on $ X $ \\* (write $ x \leq y $ instead of $ (x,y) $) 
+  \item \textbf{Incidence poset} of $ G $: poset whose cover diagram is represented by $ IG $ with vertices all below the edges
+  \item \textbf{Poset dimension}: $ \dim(R) = $ smallest $ k \in \N : R $ is intersection of $ k $ total orders
+  \item \textbf{Poset dimension in planar graphs}: $ G $ planar $ \Leftrightarrow \dim(\text{incidence poset}) \leq 3 $
+\end{itemize}
+
+\paragraph{List-colorings}
+\begin{itemize}
+  \item \textbf{L-list-colorable}: if $ \exists \ c: V \to \N \ \forall v \in V : c(v) \in L(v) $ \\*
+  (for \emph{list of colors} $ L(v) \subseteq \N $ for each vertex, adjacent vertices receive different colors) 
+  \item \textbf{k-list-colorable/-choosable}: if $ G $ is $ L $-list-colorable for each list $ L $
+  \item \textbf{List chromatic number}: $ \chi_l(G) = \text{ch}(G) $ \\* $ = \min\left\{ k : G \text{ is $ L $-colorable } \forall L: V \to 2^\N: \vert L(v) \vert = k \forall v \in V(G) \right\} $
+  \begin{itemize}
+    \item $ \chi_l(G) \geq \chi(G) $ because we can choose $ L(v) = \{ 1, \dots, k \} $ ($ \forall v \in V(G) $) 
+    \item often $ \chi_l(G) \gg \chi(G) $ (see $ K_{m,n} $: $ \chi = 2 $, $ \chi_l \approx \log n $)
+  \end{itemize}
+  \item \textbf{Planar graphs}: $ \chi_l(G) \leq 5 $
+  \item \textbf{Locally planar graphs}: $ \chi_l(G) \leq 5 $
 \end{itemize}
