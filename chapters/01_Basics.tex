@@ -385,8 +385,8 @@
 
 \paragraph{Coloring}
 \begin{itemize}
-  \item $ \alpha(G) = $ size of largest independent set
-  \item $ \omega(G) = $ clique number
+  \item \textbf{Co-clique number}: $ \alpha(G) = $ size of largest independent set
+  \item \textbf{Clique number}: $ \omega(G) = $ size of largest clique
   \item \textbf{Proper coloring}: $ = c : V(G) \to [k] $ with $ c(u) \neq c(v) \quad (\forall uv \in E(G)) $
   \item \textbf{Equitable coloring}: proper coloring + color classes have almost ($ \pm 1 $) equal size
   \begin{itemize}
@@ -409,6 +409,16 @@
     \item $ \chi(G) \leq \Delta(G) + 1 $ (\emph{greedy coloring})
     \item $ G $ connected, not complete, no odd cycles $ \Rightarrow \chi(G) \leq \Delta(G) $
   \end{itemize}
+\end{itemize}
+
+\paragraph{Perfect graph}
+\begin{itemize}
+  \item \textbf{Definition}: $ \forall H \underset{\text{ind}}{\subseteq} G : \chi(H) = \omega(H) $
+  \item \textbf{Perfect complement}: $ G $ is perfect $ \Leftrightarrow \overline{G} $ is perfect
+  \item \textbf{Perfect graph conjecture}: $ G $ is perfect $ \Leftrightarrow $
+    \begin{equation*}
+      C_{2k+1} \not \subseteq G \text{ for } k \geq 2 \wedge \overline{C_{2k+1}} \not \subseteq G
+    \end{equation*}
 \end{itemize}
 
 \paragraph{Posets}
