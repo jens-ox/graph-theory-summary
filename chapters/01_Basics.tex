@@ -9,18 +9,127 @@
   \item \textbf{Power set} $ 2^X \coloneqq \{ A : A \subseteq X \} $
 \end{itemize}
 
-\paragraph{Graph}
+\paragraph{Graphs}
 \begin{itemize}
-  \item \textbf{Definition}: $ G = (V,E) $ with vertex set $ V $ and edge set $ E \subseteq \{ \{ u,v \} : u,v \in V, u \neq v \} $
-  \item \textbf{Vertex set}: $ V(G) $
-  \item \textbf{Edge set}: $ E(G) $
-  \item \textbf{Isomorphic} ($ G_1 $ to another graph $ G_2 $): if $ \exists $ bijection $ f: V_1 \to V_2 $ with \\*
-    $ \{ u,v \} \in E_1 \Leftrightarrow \{ f(u),f(v) \} \in E_2 $
+  \item \textbf{Definition}: $ G = (V,E) $ with  $ E \subseteq V^2 $, $ V \cap E = \varnothing $
+  \item \textbf{Vertex}: $ v \in V $ for graph $ G = (V,E) $
+  \begin{itemize}
+    \item $ v $ \emph{incident with} $ e \Leftrightarrow v \in e $  
+    \item $ v_1 $, $ v_2 $ \emph{ends of} $ e \Leftrightarrow e = v_1v_2 $
+    \item $ v_1 $, $ v_2 $ \emph{adjacent}/\emph{neighbors} $ \Leftrightarrow $ $ v_1v_2 \in E $
+  \end{itemize}
+  \item \textbf{Edge}: $ e = \{ x,y \} \in E $ for graph $ G = (V,E) $ (short $ e = xy $)
+  \begin{itemize}
+    \item $ e $ \emph{edge at} $ v \Leftrightarrow v $ incident with $ e $
+    \item $ e $ \emph{joins} $ v_1 $, $ v_2 \Leftrightarrow e = v_1v_2 $
+    \item $ xy $ is \emph{X-Y-edge} $ \Leftrightarrow x \in X \wedge y \in Y $
+    \item $ e_1 $, $ e_2 $ \emph{adjacent}/\emph{neighbors} $ \Leftrightarrow \ \exists \ v: v \in e_1 \wedge v \in e_2 $
+  \end{itemize}
+  \item \textbf{Vertex sets}:
+  \begin{itemize}
+    \item $ V(G) = V $ for graph $ G = (V,E) $
+    \item $ X \subset V(G) $ \emph{independent} $ \Leftrightarrow $ no $ x_1, x_2 \in X $ are adjacent
+    \item \emph{neighborhood} of $ v \in V(G) $: $ N(v) = \{ u \in V(G) : uv \in E(G) \} $
+  \end{itemize}
+  \item \textbf{Edge sets}:
+  \begin{itemize}
+    \item $ E(G) = E $ for graph $ G = (V,E) $
+    \item $ E(X,Y) $: set of edges between $ X \subset V(G) $ and $ Y \subset V(G) $
+    \item $ E(x,Y) $: set of edges between vertex $ x \in V(G) $ and $ Y \subset V(G) $ 
+    \item $ E(v) $: set of edges at $ v \in V(G) $
+  \end{itemize}
   \item \textbf{Order}: $ = \vert V(G) \vert $, short $ \vert G \vert $
   \item \textbf{Size}: $ = \vert E(G) \vert $, short $ \Vert G \Vert $
-  \item \textbf{Complement}: $ \overline{G} = (V(G), \left( \begin{smallmatrix}
-    V \\ 2
-  \end{smallmatrix} \right)-E(G)) $
+  \item \textbf{Trivial graph}: graph of order $ 0 $ or $ 1 $
+  \item \textbf{Isomorphic} ($ G_1 $ to another graph $ G_2 $, write $ G_1 \cong G_2 $ or even $ G_1 = G_2 $):
+    \begin{equation*}
+      \exists \text{ bijection } f: V_1 \to V_2 : \{ u,v \} \in E_1 \Leftrightarrow \{ f(u),f(v) \} \in E_2
+    \end{equation*}
+  \item \textbf{Graph union}: $ G \cup G' = (V(G) \cup V(G'), E(G) \cup E(G')) $
+  \item \textbf{Graph intersection}: $ G \cap G' = (V(G) \cap V(G'), E(G) \cap E(G')) $
+  \item \textbf{Graph multiplication}: $ G * G' $: join all $ v \in G $ with all $ v' \in G' $ \\* (with $ V(G) \cap V(G') = \varnothing $)
+  \item \textbf{Subgraph} $ G' $ of $ G $ (write $ G' \subseteq G $): if $ V(G') \subseteq V(G) $ and $ E(G') \subseteq E(G) $
+  \begin{itemize}
+    \item $ G $ \emph{contains} $ G' $ 
+    \item $ G' $ \emph{proper subgraph} of $ G $: if $ G' \subseteq G $ and $ G' \neq G $
+    \item $ G' $ \emph{induced subgraph} of $ G $: $ G' \subseteq G $ and $ E(G') $ contains all edges of $ G $ with both ends in $ V(G') $, $ V(G') $ \emph{induces} $ G' $, write $ G' = G[X] $ (with $ X = V(G') $)
+    \item \emph{Edge-induced subgraph}: subgraph induced by $ X \subseteq E(G) $, note $ G[X] $
+    \item $ G' $ \emph{spanning subgraph} of $ G $: $ V(G') = V(G) $
+  \end{itemize}
+  \item \textbf{Supergraph}: $ G $ of $ G' $ (write $ G \supseteq G' $): as above.
+  \item \textbf{Vertex cover}: $ V' \subseteq V(G) $ s.t. any $ e \in E(G) $ is incident to a vertex in $ V' $ 
+  \item \textbf{Graph subtraction}:
+  \begin{itemize}
+    \item $ G - U = G[V(G) \setminus U] $ for some vertex set $ U $
+    \item $ G - v = G[V(G) \setminus \{ v \}] $ for some vertex $ v $ 
+    \item $ G - G' = G[V(G) \setminus V(G')] $ for some graph $ G' $
+  \end{itemize}
+  \item \textbf{Edge addition}: $ G + F = (V(G), V(E) \cup F) $ for some $ F \subseteq V(G)^2 $
+  \item \textbf{Complement}: $ \overline{G} = (V(G), V^2 \setminus E(G)) $
+  \item \textbf{Line graph} of $ G $: $ L(G) = (E(G), \{ xy \in E(G)^2 : x,y \text{ adjacent in } G \}) $ 
+  \item \textbf{Complete graph}: $ (X, X^2) $ with vertex set $ X $
+  \begin{itemize}
+    \item $ K_n $: complete graph on $ n $ vertices 
+  \end{itemize}
+\end{itemize}
+
+\paragraph{Vertex degrees}
+\begin{itemize}
+  \item \textbf{Degree} of $ v \in V $: $ d(v) = \deg(v) = \vert N(v) \vert $
+  \begin{itemize}
+    \item $ v \in V(G) $ \emph{isolated}: $ d(v) = 0 $
+    \item $ v \in V(G) $ \emph{leaf}: $ d(v) = 1 $
+    \item number of vertices of odd degree is even
+  \end{itemize}
+  \item \textbf{Minimum degree} of graph $ G $: $ \delta(G) = \min\{ d(v) : v \in V(G) \} $
+  \item \textbf{Maximum degree} of graph $ G $: $ \Delta(G) = \max\{ d(v) : v \in V(G) \} $
+  \item \textbf{Degree sum}: $ \sum_{v \in V(G)} \deg(v) = 2\vert E(G) \vert $
+  \item \textbf{Average degree} of graph $ G $: $ d(G) = \frac{1}{\vert G \vert}\sum_{v\in V} d(v) $
+  \begin{itemize}
+    \item $ \delta(G) \leq d(G) \leq \Delta(G) $ 
+  \end{itemize}
+  \item \textbf{k-regular graph}: $ \forall v \in V(G) : d(v) = k $
+  \begin{itemize}
+    \item \emph{cubic graph}: $ 3 $-regular graph 
+  \end{itemize}
+  \item \textbf{Vertex-Edge-ratio} of graph $ G $: $ \epsilon(G) = \frac{\Vert G \Vert}{\vert G \vert} $
+  \begin{itemize}
+    \item $ \epsilon(G) = \frac{1}{2}d(G) $
+    \item every graph with $ \Vert G \Vert \geq 1 $ has $ H \subseteq G $ with $ \delta(H) > \epsilon(H) \geq \epsilon(G) $
+  \end{itemize}
+\end{itemize}
+
+\paragraph{Paths and Cycles}
+\begin{itemize}
+  \item \textbf{Path}: $ (\{ v_1, \dots, v_n \}, \{ \{ v_1, v_2 \}, \dots, \{ v_{n-1},v_n \} \}) $ (read: $ v_0v_n $-path)
+  \begin{itemize}
+    \item \emph{shorthand}: $ (v_1, \dots, v_n) $
+    \item $ v_0 $, $ v_n $ \emph{linked} by path 
+    \item $ v_0 $, $ v_n $ \emph{end-vertices}/\emph{ends} of path
+    \item $ v_1, \dots, v_{n-1} $ \emph{inner vertices} of path
+  \end{itemize}
+  \item \textbf{Length} (of path): $ = \vert E(P) \vert \neq \vert V(P) \vert $
+  \item \textbf{Shorthands} ($ 0 \leq i \leq j \leq k $):
+  \begin{itemize}
+    \item $ P = (x_0, \dots, x_k) $, $ \mathring{P} = (x_1, \dots, x_{k-1}) $
+    \item $ Px_i = (x_0, \dots, x_i) $, $ P\mathring{x_i} = (x_0, \dots, x_{i-1}) $
+    \item $ x_iP = (x_i, \dots, x_k) $, $ \mathring{x_i}P = (x_{i+1}, \dots, x_k) $
+    \item $ x_iPx_j = (x_i, \dots, x_j) $, $ \mathring{x_i}P\mathring{x_j} = (x_{i+1}, \dots, x_{j-1}) $
+  \end{itemize}
+  \item \textbf{Path concatenation}: $ Px \cap xQy \cap yR = PxQyR $
+  \item \textbf{A-B-path}: $ V(P) \cap A = \{ x_0 \} \wedge V(P) \cap B = \{ x_n \} $
+  \item \textbf{H-path}: graph $ H $, $ P $ meets $ H $ exactly in its ends
+  \item \textbf{Independent}: two $ ab $-paths are independent $ \Leftrightarrow $ they only share $ a $ and $ b $
+  %
+  %
+  % STOPPED HERE
+  %
+  %
+  \item \textbf{Subgraph separation}: $ X \subset V(G) $ separates $ A,B \subset V(G) \Leftrightarrow $ any $ A $-$ B $-path has vertex in $ X $  
+\end{itemize}
+
+\paragraph{Rest}
+\begin{itemize}
   \item \textbf{Degree sequence}: multiset of degrees of vertices in $ V(G) $
   \begin{itemize}
     \item \emph{graphic}: deg. seq. $ (d_1, \dots, d_n) $, iff
@@ -29,9 +138,6 @@
        \item $ \sum_{i=1}^k d_i \leq k(k-1) + \sum{i = k+1}^n \min(d_i,k) $ \quad ($ \forall 1 \leq k \leq n $)
      \end{enumerate} 
   \end{itemize}
-  \item \textbf{Degree sum}: $ \sum_{v \in V(G)} \deg(v) = 2\vert E(G) \vert $
-  \item \textbf{Minimum degree}: $ \delta(G) = $ degree of $ v \in V(G) $ with smallest degree
-  \item \textbf{Maximum degree}: $ \Delta(G) = $ degree of $ v \in V(G) $ with largest degree
   \item \textbf{Adjacency matrix}: $ A(G) = \R^{n \times n} \ni A_{i,j} = \begin{cases}
     1, & ij \in E \\
     0, & \text{else}
@@ -60,55 +166,12 @@
   \item \textbf{Definition}: $ G = (V,E) $ with vertex set $ V $ and edge set $ E \subseteq 2^V = \{ A : A \subseteq V \} $
 \end{itemize}
 
-\paragraph{Vertex}
-\begin{itemize}
-  \item \textbf{Incident} to $ e \in E(G) $ if $ v \in e $
-  \item \textbf{Adjacent} to $ \widetilde{v} \in V(G) $ if $ \{ v, \widetilde{v} \} \in E(G) $
-  \item \textbf{Neighborhood}: $ N(v) = \{ u: uv \in E(G) \} $
-  \item \textbf{Degree}: $ \deg(v) = \text{d}(v) = \vert N(v) \vert $
-  \item \textbf{Isolated}: vertex with $ \deg(v) = 0 $
-  \item \textbf{Leaf}: vertex with $ \deg(v) = 1 $
-\end{itemize}
-
-\paragraph{Subgraph}
-\begin{itemize}
-  \item \textbf{Definition}: $ H $ subgraph of $ G $ (write $ H \subseteq G $) if $ V(H) \subseteq V(G) \wedge E(H) \subseteq E(G) $
-  \item \textbf{Induced subgraph}: $ H $ induced subgraph of $ G $ (write $ H \underset{\text{ind}}{\subseteq} G $), if $ H \subseteq G $ and $ E(H) $ contains all edges from $ E(G) $ between vertices in $ V(H) $
-  \item \textbf{Edge-induced subgraph}: subgraph induced by $ X \subseteq E(G) $, note $ G[X] $
-  \item \textbf{Subgraph separation}: $ X \subset V(G) $ separates $ A,B \subset V(G) \Leftrightarrow $ any $ A $-$ B $-path has vertex in $ X $
-\end{itemize}
-
-\paragraph{Spanning graph}
-\begin{itemize}
-  \item \textbf{Definition}: Subgraph with same vertex set as supergraph 
-\end{itemize}
-
-\paragraph{Line graph}
-\begin{itemize}
-  \item \textbf{Definition}: $ L(G) = (E, \{ \{ e, e' \} : e \cap e' \neq \varnothing \}) $ 
-  \item \textbf{Graphic}: $ L $ is line graph of some $ G $, if it doesn't contain one of 9 specific induced subgraphs
-\end{itemize}
-
-\paragraph{Vertex cover}
-\begin{itemize}
-  \item \textbf{Definition}: $ V' \subseteq V(G) $ s.t. any $ e \in E(G) $ is incident to a vertex in $ V' $ 
-\end{itemize}
-
 \paragraph{Cycle}
 \begin{itemize}
   \item \textbf{Definition}: $ C_n \coloneqq (\{ v_1, \dots, v_n \}, \{ \{ v_1, v_2 \},\dots,\{ v_{n-1},v_n \},\{ v_n, v_1 \} \}) $
   \item \textbf{Shorthand}: $ (v_1, \dots, v_n, v_1) $
   \item \textbf{Length} (of cycle): $ = \vert V \vert \equiv \vert E \vert $
   \item \textbf{Cyclic subgraph}: If $ \delta(G) \geq 2 $, then $ G $ has cycle with length $ \geq \delta + 1 $
-\end{itemize}
-
-\paragraph{Path}
-\begin{itemize}
-  \item \textbf{Definition}: $ (\{ v_1, \dots, v_n \}, \{ \{ v_1, v_2 \}, \dots, \{ v_{n-1},v_n \} \}) $
-  \item \textbf{Shorthand}: $ (v_1, \dots, v_n) $
-  \item \textbf{Length} (of path): $ = \vert E \vert \neq \vert V \vert $
-  \item \textbf{$ v_0v_k $-path}: path starting at $ v_0 $ and ending at $ v_k $
-  \item \textbf{Independent}: two $ ab $-paths are independent $ \Leftrightarrow $ they only share $ a $ and $ b $
 \end{itemize}
 
 \paragraph{Walk}
@@ -177,11 +240,6 @@
   \item \textbf{Special trees}: path, star, spider, caterpillar, broom
   \item \textbf{Leaf existence}: Tree $ T $, $ \vert T \vert \geq 2 \Rightarrow T $ has leaf
   \item \textbf{Edge count}: Tree $ T $, $ \vert T \vert = n \Rightarrow \Vert T \Vert = n-1 $ 
-\end{itemize}
-
-\paragraph{k-regular graph}
-\begin{itemize}
-  \item \textbf{Definition}: Graph with $ \deg(v) = k \in \N_0 \quad (\forall v \in V(G)) $
 \end{itemize}
 
 % TODO MISSING KNESER GRAPH
