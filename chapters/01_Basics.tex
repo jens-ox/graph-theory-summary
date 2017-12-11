@@ -99,33 +99,56 @@
   \end{itemize}
 \end{itemize}
 
-\paragraph{Paths and Cycles}
+\paragraph{Paths}
 \begin{itemize}
   \item \textbf{Path}: $ (\{ v_1, \dots, v_n \}, \{ \{ v_1, v_2 \}, \dots, \{ v_{n-1},v_n \} \}) $ (read: $ v_0v_n $-path)
   \begin{itemize}
-    \item \emph{shorthand}: $ (v_1, \dots, v_n) $
+    \item \emph{shorthand}: $ v_1\dots v_n $
     \item $ v_0 $, $ v_n $ \emph{linked} by path 
     \item $ v_0 $, $ v_n $ \emph{end-vertices}/\emph{ends} of path
     \item $ v_1, \dots, v_{n-1} $ \emph{inner vertices} of path
   \end{itemize}
-  \item \textbf{Length} (of path): $ = \vert E(P) \vert \neq \vert V(P) \vert $
+  \item \textbf{Length}: $ \vert E(P) \vert \neq \vert V(P) \vert $
   \item \textbf{Shorthands} ($ 0 \leq i \leq j \leq k $):
   \begin{itemize}
-    \item $ P = (x_0, \dots, x_k) $, $ \mathring{P} = (x_1, \dots, x_{k-1}) $
-    \item $ Px_i = (x_0, \dots, x_i) $, $ P\mathring{x_i} = (x_0, \dots, x_{i-1}) $
-    \item $ x_iP = (x_i, \dots, x_k) $, $ \mathring{x_i}P = (x_{i+1}, \dots, x_k) $
-    \item $ x_iPx_j = (x_i, \dots, x_j) $, $ \mathring{x_i}P\mathring{x_j} = (x_{i+1}, \dots, x_{j-1}) $
+    \item $ P = x_0\dots x_k $, $ \mathring{P} = x_1\dots x_{k-1} $
+    \item $ Px_i = x_0\dots x_i $, $ P\mathring{x_i} = x_0\dots x_{i-1} $
+    \item $ x_iP = x_i\dots x_k $, $ \mathring{x_i}P = x_{i+1}\dots x_k $
+    \item $ x_iPx_j = x_i\dots x_j $, $ \mathring{x_i}P\mathring{x_j} = x_{i+1}\dots x_{j-1} $
   \end{itemize}
   \item \textbf{Path concatenation}: $ Px \cap xQy \cap yR = PxQyR $
   \item \textbf{A-B-path}: $ V(P) \cap A = \{ x_0 \} \wedge V(P) \cap B = \{ x_n \} $
   \item \textbf{H-path}: graph $ H $, $ P $ meets $ H $ exactly in its ends
+
+  % TODO this has not been disclosed yet :)
   \item \textbf{Independent}: two $ ab $-paths are independent $ \Leftrightarrow $ they only share $ a $ and $ b $
+  \item \textbf{Subgraph separation}: $ X \subset V(G) $ separates $ A,B \subset V(G) \Leftrightarrow $ any $ A $-$ B $-path has vertex in $ X $
+  \item \textbf{Path existence}: Every $ G $ with $ \delta(G) \geq 2 $ contains path of length $ \delta(G) $
+  \item \textbf{Distance}: $ d_G(x,y) = \min\left( \{ k : \ \exists \text{ $ x $-$ y $-path of length } k \} \cup \{ \infty \} \right) $
+  \item \textbf{Diameter} of $ G $: $ \text{diam}(G) = \max\{ d_G(x,y) : x,y \in V(G) \} $
+\end{itemize}
+
+\paragraph{Cycles}
+\begin{itemize}
+  \item \textbf{Cycle}: $ C = P + x_{k-1}x_0 $ with path $ P = x_0\dots x_{k-1} $ ($ k \geq 3 $)
+  \begin{itemize}
+    \item \emph{shorthand}: $ x_0\dots x_{k-1}x_0 $ 
+  \end{itemize}
+  \item \textbf{Length}: $ = \vert C \vert = \Vert C \Vert $
+  \item \textbf{k-cycle}: $ C_k = $ cycle of length $ k $
+  \item \textbf{Girth} of graph $ G $: $ g(G) = \min\left( \{ k : G \text{ contains } C_k \} \cup \{ \infty \} \right) $
+  \item \textbf{Circumference} of graph $ G $: $ = \max\left( \{ k : G \text{ contains } C_k \} \cup \{ 0 \} \right) $
+  \item \textbf{Chord} of cycle $ C \subseteq G $: $ = xy \in E(G) $ with $ xy \not \in E(C) $, but $ x,y \in V(C) $
+  \item \textbf{Induced cycle}: induced subgraph of $ G $ that is a cycle
+  \begin{itemize}
+    \item = cycle in $ G $ with no chords
+  \end{itemize}
+  \item \textbf{Cycle existence}: Every $ G $ with $ \delta(G) \geq 2 $ contains cycle of length $ \geq \delta(G) + 1 $
   %
   %
   % STOPPED HERE
   %
   %
-  \item \textbf{Subgraph separation}: $ X \subset V(G) $ separates $ A,B \subset V(G) \Leftrightarrow $ any $ A $-$ B $-path has vertex in $ X $  
 \end{itemize}
 
 \paragraph{Rest}
