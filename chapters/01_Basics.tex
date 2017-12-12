@@ -122,7 +122,6 @@
 
   % TODO this has not been disclosed yet :)
   \item \textbf{Independent}: two $ ab $-paths are independent $ \Leftrightarrow $ they only share $ a $ and $ b $
-  \item \textbf{Subgraph separation}: $ X \subset V(G) $ separates $ A,B \subset V(G) \Leftrightarrow $ any $ A $-$ B $-path has vertex in $ X $
   \item \textbf{Path existence}: Every $ G $ with $ \delta(G) \geq 2 $ contains path of length $ \delta(G) $
   \item \textbf{Distance}: $ d_G(x,y) = \min\left( \{ k : \ \exists \text{ $ x $-$ y $-path of length } k \} \cup \{ \infty \} \right) $
   \item \textbf{Central}: $ v \in V(G) $ where $ \text{cen} = \max\{ d_G(v,x) : v \neq x \in V(G) \} $ is minimal
@@ -161,6 +160,32 @@
   \item \textbf{Induced cycle}: induced subgraph of $ G $ that is a cycle (= cycle in $ G $ with no chords)
   \item \textbf{Cycle existence}: Every $ G $ with $ \delta(G) \geq 2 $ contains cycle of length $ \geq \delta(G) + 1 $
   \item \textbf{Odd closed walk, odd cycle}: $ G $  has \emph{odd} closed walk $ \Rightarrow $ $ G $ has odd cycle
+\end{itemize}
+
+\paragraph{Connectivity}
+\begin{itemize}
+  \item \textbf{Connected} graph $ G $: $ \forall x,y \in V(G) : \exists \ xy $-path
+  \begin{itemize}
+    \item \emph{connected subset} $ U \subseteq V(G) $: if $ G[U] $ is connected  
+  \end{itemize}
+  \item \textbf{Vertex enumeration}: $ G $ connected $ \Rightarrow $ vertices can be enumerated $ v_1, \dots, v_n $ s.t. $ G_i \coloneqq G[v_1, \dots, v_i] $ is connected ($ \forall i \leq n $)
+  \item \textbf{Component}: maximal connected subgraph
+  \begin{itemize}
+    \item \emph{graph partitioning}: components partition $ G $ 
+  \end{itemize}
+  \item \textbf{Subgraph separation}: $ X \subset V(G) $ separates $ A,B \subset V(G) \Leftrightarrow $ any $ A $-$ B $-path has vertex in $ X $
+  \item \emph{separator} $ X $
+  \item \textbf{Cut-Vertex}: vertex separating two other vertices of the component
+  \item \textbf{Bridge}: edge separating its ends (= edges of component not lying on any cycle)
+  \item \textbf{k-connected}: if $ \vert G \vert > k \wedge G - X $ is connected $ \forall X \subseteq V(G) $ with $ \vert X \vert < k $
+  \begin{itemize}
+    \item[$ \leadsto $] no two vertices in $ G $ are separated by fewer than $ k $ other vertices
+  \end{itemize}
+  \item \textbf{Connectivity}: $ \kappa(G) = \max\{ k : G \text{ is $ k $-connected} \} $
+  \item \textbf{l-edge-connected}: if $ \vert G \vert > 1 \wedge G - F $ is connected $ \forall F \subseteq E(G) $ with $ \vert F \vert < l $
+  \item \textbf{Edge-connectivity}: $ \kappa'(G) = \lambda(G) = \max\{ l : G \text{ is $ l $-edge-connected} \} $
+  \item \textbf{Connectivity and smallest degree}: $ \kappa(G) \leq \kappa'(G) \leq \delta(G) $
+  \item \textbf{Connectivity and average degree}: $ d(G) \geq 4k \Rightarrow G $ has $ k $-connected subgraph
 \end{itemize}
 
 \paragraph{Rest}
