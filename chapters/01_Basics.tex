@@ -41,6 +41,7 @@
   \item \textbf{Order}: $ = \vert V(G) \vert $, short $ \vert G \vert $
   \item \textbf{Size}: $ = \vert E(G) \vert $, short $ \Vert G \Vert $
   \item \textbf{Trivial graph}: graph of order $ 0 $ or $ 1 $
+  \item \textbf{Incidence graph} of $ G $: $ IG = (V \cup E, \left\{ \{ v,e \} : v \in e, e \in E \right\}) $
   \item \textbf{Isomorphic} ($ G_1 $ to another graph $ G_2 $, write $ G_1 \cong G_2 $ or even $ G_1 = G_2 $):
     \begin{equation*}
       \exists \text{ bijection } f: V_1 \to V_2 : \{ u,v \} \in E_1 \Leftrightarrow \{ f(u),f(v) \} \in E_2
@@ -215,6 +216,46 @@
   \end{itemize}
 \end{itemize}
 
+\paragraph{Contraction and minors}
+\begin{itemize}
+  \item \textbf{Subdivision} of graph $ G $: any graph obtained from $ G $ by subdividing edges
+  \item \textbf{Topological minor}: $ H $ is topological minor if $ TH \subseteq G $ where $ TH $ is built from $ H $ by subdividing edges
+  \begin{itemize}
+    \item \emph{branch vertices}: original vertices of $ H $
+    \item \emph{subdividing vertices}: vertices placed on edges joining branch vertices
+  \end{itemize}
+  \item \textbf{MH}: $ G \overset{(\star)}{=} MH $ is \emph{minor} of $ H $ if
+  \begin{itemize}
+    \item $ V(G) = V_1 \overset{\cdot}{\cup} \cdots \overset{\cdot}{\cup} V_n $ with $ n = \vert H \vert $
+    \item $ G[V_i] $ connected ($ \forall i = 1, \dots, n $)
+    \item If $ V(H) = \{ v_1, \dots, v_n \} $ and $ v_iv_j \in E(H) $, then $ \exists $ edge between $ V_i $ and $ V_j $
+  \end{itemize}
+  $ (\star) $: \emph{Notation abuse}: $ MH $ is class of graphs
+  \item \textbf{Branch sets}: $ V_i $'s from above
+  \item \textbf{Extended branch graph}: Branch set together with incident edges
+  \item \textbf{Minor} ($ H $ of $ G $, noted $ H \preccurlyeq G $): $ \Leftrightarrow MH \subseteq G $ \\*
+    $ \leadsto H \preccurlyeq G \Leftrightarrow H $ can be obtained by edge/vertex deletions + \textbf{contractions}.
+  \item \textbf{Note}: $ TH \subseteq MH $
+\end{itemize}
+
+\paragraph{Euler tours}
+\begin{itemize}
+  \item \textbf{Definition}: closed walk with
+  \begin{itemize}
+    \item no edges of $ G $ are repeatedly used
+    \item all edges of $ G $ are used 
+  \end{itemize}
+  \item \textbf{Eulerian graph}: graph containing an Euler tour $ \Leftrightarrow \forall v \in V(G) : d(v) $ even 
+\end{itemize}
+
+\paragraph{Algebraic assets}
+\begin{itemize}
+  \item \textbf{Adjacency matrix}: $ A(G) = \R^{n \times n} \ni A_{i,j} = \begin{cases}
+    1, & ij \in E \\
+    0, & \text{else}
+  \end{cases} $
+\end{itemize}
+
 \paragraph{Rest}
 \begin{itemize}
   \item \textbf{Degree sequence}: multiset of degrees of vertices in $ V(G) $
@@ -224,17 +265,6 @@
        \item $ d_1 + \cdots + d_n $ even
        \item $ \sum_{i=1}^k d_i \leq k(k-1) + \sum{i = k+1}^n \min(d_i,k) $ \quad ($ \forall 1 \leq k \leq n $)
      \end{enumerate} 
-  \end{itemize}
-  \item \textbf{Adjacency matrix}: $ A(G) = \R^{n \times n} \ni A_{i,j} = \begin{cases}
-    1, & ij \in E \\
-    0, & \text{else}
-  \end{cases} $
-  \item \textbf{Incidence graph} of $ G $: $ IG = (V \cup E, \left\{ \{ v,e \} : v \in e, e \in E \right\}) $
-  \item \textbf{Eulerian}: if it contains an Eulerian tour
-  \item \textbf{Connected}: for any two vertices there is a link between them
-  \begin{itemize}
-    \item \emph{spanning tree}: if $ G $ is connected, then it has a spanning tree
-    \item \emph{peeling leaves}: vertices can be ordered $ v_1, \dots, v_n $ s.t. $ G[\{ v_1, \dots, v_i \}] $ is connected for $ i \in \{ 1, \dots, n \} $
   \end{itemize}
   \item \textbf{Matchings}:
   \begin{itemize}
@@ -259,29 +289,6 @@
 \paragraph{Hypergraph}
 \begin{itemize}
   \item \textbf{Definition}: $ G = (V,E) $ with vertex set $ V $ and edge set $ E \subseteq 2^V = \{ A : A \subseteq V \} $
-\end{itemize}
-
-\paragraph{Walk}
-\begin{itemize}
-  \item \textbf{Definition}: non-empty alternating sequence of vertices and edges
-    \begin{equation*}
-      v_0e_0\dots e_{k-1}v_k
-    \end{equation*}
-    with $ e_i = v_iv_{i+1} $, length $ k \in \N $
-    \begin{itemize}
-      \item \emph{closed}: if $ v_0=v_k $
-      \item \emph{even}: if $ k $ is even
-      \item \emph{odd}: if $ k $ is odd
-    \end{itemize}
-  \item \textbf{Eulerian tour}:
-  \begin{itemize}
-    \item \emph{Definition}: closed walk with
-    \begin{itemize}
-      \item no edges of $ G $ are repeatedly used
-      \item all edges of $ G $ are used 
-    \end{itemize}
-    \item \emph{Even degrees}: $ G $ connected has Euler tour $ \Leftrightarrow \forall v \in V(G) : \deg(v) $ even
-  \end{itemize}
 \end{itemize}
 
 \paragraph{Block}
@@ -343,7 +350,6 @@
   \end{equation*}
   with $ \deg(x), \deg(y) \geq 3 $
   \item \textbf{Three-connected + decontraction}: all $ 3 $-connected graphs can be built by iteratively de-contracting vertices of $ K_4 $
-  \item \textbf{Average degree $ \geq 4 $}: has $ k $-connected subgraph ($ k \geq 2 $)
 \end{itemize}
 
 \paragraph{Cuts}
@@ -462,23 +468,6 @@
   \item \textbf{Euler genus}: $ n - e + f = 2 - 2 \gamma \leadsto $ \emph{Euler genus} $ 2 \gamma $ of $ S $
   \item \textbf{Heawood's formula}: $ \chi(G) \leq \underbrace{\left\lfloor \frac{7 + \sqrt{1 + 48 \gamma}}{2} \right\rfloor}_{f(\gamma)\text{, Heawoods number}} $ \\* (for $ G $ embedded on $ S $ with Euler char $ 2-2\gamma $)
   \item \textbf{Klein bottle}: $ K_{f(\gamma)} $ is embeddable on $ S $, unless $ S $ is \emph{klein bottle}
-\end{itemize}
-
-\paragraph{Minors}
-\begin{itemize}
-  \item \textbf{MH}: $ G \overset{(\star)}{=} MH $ is \emph{minor} of $ H $ if
-  \begin{itemize}
-    \item $ V(G) = V_1 \overset{\cdot}{\cup} \cdots \overset{\cdot}{\cup} V_n $ with $ n = \vert H \vert $
-    \item $ G[V_i] $ connected ($ \forall i = 1, \dots, n $)
-    \item If $ V(H) = \{ v_1, \dots, v_n \} $ and $ v_iv_j \in E(H) $, then $ \exists $ edge between $ V_i $ and $ V_j $
-  \end{itemize}
-  $ (\star) $: \emph{Notation abuse}: $ MH $ is class of graphs
-  \item \textbf{Branch sets}: $ V_i $'s from above
-  \item \textbf{Extended branch graph}: Branch set together with incident edges
-  \item \textbf{Minor} ($ H $ of $ G $, noted $ H \preccurlyeq G $): $ \Leftrightarrow MH \subseteq G $ \\*
-    $ \leadsto H \preccurlyeq G \Leftrightarrow H $ can be obtained by edge/vertex deletions + contractions.
-  \item \textbf{Topological minor}: $ H $ is topological minor if $ TH \subseteq G $ where $ TH $ is built from $ H $ by subdividing edges
-  \item \textbf{Note}: $ TH \subseteq MH $
 \end{itemize}
 
 \paragraph{Coloring}
