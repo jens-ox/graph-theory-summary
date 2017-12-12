@@ -193,18 +193,26 @@
   \item \textbf{Forest}: Graph with no cycle as subgraph
   \item \textbf{Tree}: Graph that is connected and acyclic
   \begin{itemize}
-    \item $ \Leftrightarrow G $ is connected and $ \forall e \in E(G): G-e $ is disconnected  \\*
-      \phantom{$ \Leftrightarrow $} (\emph{minimal-connected})
-    \item $ \Leftrightarrow G $ is acyclic and $ \forall xy \not \in E(G) : G \cup xy $ has cycle \\*
-      \phantom{$ \Leftrightarrow $} (\emph{maximal-acyclic})
-    \item $ \Leftrightarrow G $ is connected and \emph{1-degenerate} ($ \forall G' \subseteq G : \delta(G') \leq 1 $) 
-    \item $ \Leftrightarrow G $ is connected and $ \Vert G \Vert = \vert G \vert - 1 $
-    \item $ \Leftrightarrow G $ is acyclic and $ \Vert G \Vert = \vert G \vert - 1 $
-    \item $ \Leftrightarrow \forall u,v \in V(G) \ \exists $ unique $ uv $-path
+    \item[$ \Leftrightarrow $] $ G $ is connected and $ \forall e \in E(G): G-e $ is disconnected \\* (\emph{minimal-connected})
+    \item[$ \Leftrightarrow $] $ G $ is acyclic and $ \forall xy \not \in E(G) : G \cup xy $ has cycle \\* (\emph{maximal-acyclic})
+    \item[$ \Leftrightarrow $] $ G $ is connected and \emph{1-degenerate} ($ \forall G' \subseteq G : \delta(G') \leq 1 $) 
+    \item[$ \Leftrightarrow $] $ G $ is connected and $ \Vert G \Vert = \vert G \vert - 1 $
+    \item[$ \Leftrightarrow $] $ G $ is acyclic and $ \Vert G \Vert = \vert G \vert - 1 $
+    \item[$ \Leftrightarrow $] $ \forall u,v \in V(G) \ \exists $ unique $ uv $-path
   \end{itemize}
   \item \textbf{Special trees}: path, star, spider, caterpillar, broom
   \item \textbf{Leaf existence}: Tree $ T $, $ \vert T \vert \geq 2 \Rightarrow T $ has leaf
   \item \textbf{Edge count}: Tree $ T $, $ \vert T \vert = n \Rightarrow \Vert T \Vert = n-1 $ 
+\end{itemize}
+
+\paragraph{Bipartite graphs}
+\begin{itemize}
+  \item \textbf{r-partite} graph $ G $: $ V(G) $ allows partitioning in $ r $ classes s.t. $ \forall e=xy \in E(G) : x $ and $ y $ are in different classes
+  \item \textbf{Bipartite} graph: $ 2 $-partite graph
+  \begin{itemize}
+    \item[$ \Leftrightarrow $] $ G $ contains no cycles of odd length
+    \item \emph{complete bipartite}: $ K_{m,n} = (A \cup B, \{ a,b \} : a \in A, b \in B) $ 
+  \end{itemize}
 \end{itemize}
 
 \paragraph{Rest}
@@ -228,6 +236,14 @@
     \item \emph{spanning tree}: if $ G $ is connected, then it has a spanning tree
     \item \emph{peeling leaves}: vertices can be ordered $ v_1, \dots, v_n $ s.t. $ G[\{ v_1, \dots, v_i \}] $ is connected for $ i \in \{ 1, \dots, n \} $
   \end{itemize}
+  \item \textbf{Matchings}:
+  \begin{itemize}
+    \item \emph{saturating}: $ G = (A \cup B, E) $ has matching saturating $ A $ \\*
+      \phantom{\emph{saturating}:} $\Leftrightarrow \forall S \subseteq A : N(S) \geq \vert S \vert $ \ \ \ ($ N(S) \coloneqq \{ b \in B : ab \in E, a \in S \} $)
+    \item \emph{nearly}: $ G = (A \cup B, E) $, $ \forall S \subseteq A : \vert N(S) \vert \geq \vert S \vert - d $ \ \ \  ($ d \geq 1 $). \\*
+      \phantom{\emph{nearly}:} $ \Rightarrow \ \exists $ matching $ M $ saturating all but at most $ d $ vertices of $ A $
+  \end{itemize}
+  \item \textbf{Matching vs vertex cover}: size of largest matching = size of smallest vertex cover
 \end{itemize}
 
 \paragraph{Digraph}
@@ -287,22 +303,6 @@
 % TODO MISSING PETERSON GRAPH
 
 % TODO MISSING HYPERCUBE
-
-\paragraph{Bipartite graph}
-\begin{itemize}
-  \item \textbf{Definition}: $ G $ is bipartite $ \Leftrightarrow G $ contains no cycles of odd length
-  \begin{itemize}
-    \item \emph{complete bipartite}: $ K_{m,n} = (A \cup B, \{ a,b \} : a \in A, b \in B) $ 
-  \end{itemize}
-  \item \textbf{Matchings}:
-  \begin{itemize}
-    \item \emph{saturating}: $ G = (A \cup B, E) $ has matching saturating $ A $ \\*
-      \phantom{\emph{saturating}:} $\Leftrightarrow \forall S \subseteq A : N(S) \geq \vert S \vert $ \ \ \ ($ N(S) \coloneqq \{ b \in B : ab \in E, a \in S \} $)
-    \item \emph{nearly}: $ G = (A \cup B, E) $, $ \forall S \subseteq A : \vert N(S) \vert \geq \vert S \vert - d $ \ \ \  ($ d \geq 1 $). \\*
-      \phantom{\emph{nearly}:} $ \Rightarrow \ \exists $ matching $ M $ saturating all but at most $ d $ vertices of $ A $
-  \end{itemize}
-  \item \textbf{Matching vs vertex cover}: size of largest matching = size of smallest vertex cover
-\end{itemize}
 
 \paragraph{Matching}
 \begin{itemize}
