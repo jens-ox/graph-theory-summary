@@ -188,6 +188,25 @@
   \item \textbf{Connectivity and average degree}: $ d(G) \geq 4k \Rightarrow G $ has $ k $-connected subgraph
 \end{itemize}
 
+\paragraph{Trees and forests}
+\begin{itemize}
+  \item \textbf{Forest}: Graph with no cycle as subgraph
+  \item \textbf{Tree}: Graph that is connected and acyclic
+  \begin{itemize}
+    \item $ \Leftrightarrow G $ is connected and $ \forall e \in E(G): G-e $ is disconnected  \\*
+      \phantom{$ \Leftrightarrow $} (\emph{minimal-connected})
+    \item $ \Leftrightarrow G $ is acyclic and $ \forall xy \not \in E(G) : G \cup xy $ has cycle \\*
+      \phantom{$ \Leftrightarrow $} (\emph{maximal-acyclic})
+    \item $ \Leftrightarrow G $ is connected and \emph{1-degenerate} ($ \forall G' \subseteq G : \delta(G') \leq 1 $) 
+    \item $ \Leftrightarrow G $ is connected and $ \Vert G \Vert = \vert G \vert - 1 $
+    \item $ \Leftrightarrow G $ is acyclic and $ \Vert G \Vert = \vert G \vert - 1 $
+    \item $ \Leftrightarrow \forall u,v \in V(G) \ \exists $ unique $ uv $-path
+  \end{itemize}
+  \item \textbf{Special trees}: path, star, spider, caterpillar, broom
+  \item \textbf{Leaf existence}: Tree $ T $, $ \vert T \vert \geq 2 \Rightarrow T $ has leaf
+  \item \textbf{Edge count}: Tree $ T $, $ \vert T \vert = n \Rightarrow \Vert T \Vert = n-1 $ 
+\end{itemize}
+
 \paragraph{Rest}
 \begin{itemize}
   \item \textbf{Degree sequence}: multiset of degrees of vertices in $ V(G) $
@@ -249,11 +268,6 @@
   \end{itemize}
 \end{itemize}
 
-\paragraph{Connected component}
-\begin{itemize}
-  \item \textbf{Definition}: \emph{maximal} connected subgraph (connected, but any supergraph isn't)
-\end{itemize}
-
 \paragraph{Block}
 \begin{itemize}
   \item \textbf{Block}: maximal $ 2 $-connected subgraph or bridge
@@ -266,29 +280,6 @@
      \item $ E = \{ \{ v,B \} : v \in V(B) \text{, cut-vertex $ v $, block $ B $} \} $ 
      \item block-cut-vertex graph of connected graph is tree
    \end{itemize}
-\end{itemize}
-
-\paragraph{Acyclic graph, Forest}
-\begin{itemize}
-  \item \textbf{Definition}: Graph with no cycle as subgraph
-\end{itemize}
-
-\paragraph{Tree}
-\begin{itemize}
-  \item \textbf{Definition}: Graph that is connected and acyclic
-  \begin{itemize}
-    \item $ \Leftrightarrow G $ is connected and $ \forall e \in E(G): G-e $ is disconnected  \\*
-      \phantom{$ \Leftrightarrow $} (\emph{minimal-connected})
-    \item $ \Leftrightarrow G $ is acyclic and $ \forall xy \not \in E(G) : G \cup xy $ has cycle \\*
-      \phantom{$ \Leftrightarrow $} (\emph{maximal-acyclic})
-    \item $ \Leftrightarrow G $ is connected and \emph{1-degenerate} ($ \forall G' \subseteq G : \delta(G') \leq 1 $) 
-    \item $ \Leftrightarrow G $ is connected and $ \Vert G \Vert = \vert G \vert - 1 $
-    \item $ \Leftrightarrow G $ is acyclic and $ \Vert G \Vert = \vert G \vert - 1 $
-    \item $ \Leftrightarrow \forall u,v \in V(G) \ \exists $ unique $ uv $-path
-  \end{itemize}
-  \item \textbf{Special trees}: path, star, spider, caterpillar, broom
-  \item \textbf{Leaf existence}: Tree $ T $, $ \vert T \vert \geq 2 \Rightarrow T $ has leaf
-  \item \textbf{Edge count}: Tree $ T $, $ \vert T \vert = n \Rightarrow \Vert T \Vert = n-1 $ 
 \end{itemize}
 
 % TODO MISSING KNESER GRAPH
