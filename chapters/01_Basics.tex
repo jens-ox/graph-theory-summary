@@ -125,7 +125,22 @@
   \item \textbf{Subgraph separation}: $ X \subset V(G) $ separates $ A,B \subset V(G) \Leftrightarrow $ any $ A $-$ B $-path has vertex in $ X $
   \item \textbf{Path existence}: Every $ G $ with $ \delta(G) \geq 2 $ contains path of length $ \delta(G) $
   \item \textbf{Distance}: $ d_G(x,y) = \min\left( \{ k : \ \exists \text{ $ x $-$ y $-path of length } k \} \cup \{ \infty \} \right) $
+  \item \textbf{Central}: $ v \in V(G) $ where $ \text{cen} = \max\{ d_G(v,x) : v \neq x \in V(G) \} $ is minimal
+  \item \textbf{Radius}: $ \text{rad}(G) = $ minimal cen $ = \min_{x \in V(G)}\max_{y \in V(G)}d_G(x,y) $
   \item \textbf{Diameter} of $ G $: $ \text{diam}(G) = \max\{ d_G(x,y) : x,y \in V(G) \} $
+  \begin{itemize}
+    \item \emph{radius-diameter-relation}: $ \text{rad}(G) \leq \text{diam}(G) \leq 2\text{rad}(G) $
+    \item \emph{radius-degree-vertex-restriction}:
+    \begin{equation*}
+      \text{rad}(G) \leq k \wedge \Delta(G) \leq d \geq 3 \Rightarrow \vert G \vert \leq \frac{d}{d-2}(d-1)^k
+    \end{equation*}
+  \end{itemize}
+  \item \textbf{Walk}: alternating sequence $ v_0e_0\dots e_{k-1}v_k $ s.t. $ e_i = v_iv_{i+1} $ ($ \forall i < k $)
+  \begin{itemize}
+    \item \emph{closed walk}: $ v_k = v_0 $ 
+    \item \emph{walk-path-relation}: all vertices in walk distinct $ \leadsto $ path
+    \item \emph{walk-path-induction}: $ \exists \ v_0v_k $-walk $ \Rightarrow \ \exists \ v_0v_k $-path 
+  \end{itemize}
 \end{itemize}
 
 \paragraph{Cycles}
@@ -137,18 +152,15 @@
   \item \textbf{Length}: $ = \vert C \vert = \Vert C \Vert $
   \item \textbf{k-cycle}: $ C_k = $ cycle of length $ k $
   \item \textbf{Girth} of graph $ G $: $ g(G) = \min\left( \{ k : G \text{ contains } C_k \} \cup \{ \infty \} \right) $
+  \begin{itemize}
+    \item \emph{girth-diameter-relation}: $ g(G) \leq 2\text{diam}(G)+1 $ 
+    \item \emph{girth-vertex-relation}: $ \delta(G) \geq 3 \Rightarrow g(G) < 2\log \vert G \vert $
+  \end{itemize}
   \item \textbf{Circumference} of graph $ G $: $ = \max\left( \{ k : G \text{ contains } C_k \} \cup \{ 0 \} \right) $
   \item \textbf{Chord} of cycle $ C \subseteq G $: $ = xy \in E(G) $ with $ xy \not \in E(C) $, but $ x,y \in V(C) $
-  \item \textbf{Induced cycle}: induced subgraph of $ G $ that is a cycle
-  \begin{itemize}
-    \item = cycle in $ G $ with no chords
-  \end{itemize}
+  \item \textbf{Induced cycle}: induced subgraph of $ G $ that is a cycle (= cycle in $ G $ with no chords)
   \item \textbf{Cycle existence}: Every $ G $ with $ \delta(G) \geq 2 $ contains cycle of length $ \geq \delta(G) + 1 $
-  %
-  %
-  % STOPPED HERE
-  %
-  %
+  \item \textbf{Odd closed walk, odd cycle}: $ G $  has \emph{odd} closed walk $ \Rightarrow $ $ G $ has odd cycle
 \end{itemize}
 
 \paragraph{Rest}
@@ -189,14 +201,6 @@
   \item \textbf{Definition}: $ G = (V,E) $ with vertex set $ V $ and edge set $ E \subseteq 2^V = \{ A : A \subseteq V \} $
 \end{itemize}
 
-\paragraph{Cycle}
-\begin{itemize}
-  \item \textbf{Definition}: $ C_n \coloneqq (\{ v_1, \dots, v_n \}, \{ \{ v_1, v_2 \},\dots,\{ v_{n-1},v_n \},\{ v_n, v_1 \} \}) $
-  \item \textbf{Shorthand}: $ (v_1, \dots, v_n, v_1) $
-  \item \textbf{Length} (of cycle): $ = \vert V \vert \equiv \vert E \vert $
-  \item \textbf{Cyclic subgraph}: If $ \delta(G) \geq 2 $, then $ G $ has cycle with length $ \geq \delta + 1 $
-\end{itemize}
-
 \paragraph{Walk}
 \begin{itemize}
   \item \textbf{Definition}: non-empty alternating sequence of vertices and edges
@@ -218,9 +222,6 @@
     \end{itemize}
     \item \emph{Even degrees}: $ G $ connected has Euler tour $ \Leftrightarrow \forall v \in V(G) : \deg(v) $ even
   \end{itemize}
-  \item \textbf{$ v_0v_k $-walk}: walk starting at $ v_0 $ and ending at $ v_k $
-  \item \textbf{Induces path}: $ \exists \ uv\text{-walk} \Rightarrow \ \exists \ uv\text{-path} $
-  \item \textbf{Odd closed walk, odd cycle}: $ G $  has \emph{odd} closed walk $ \Rightarrow $ $ G $ has odd cycle
 \end{itemize}
 
 \paragraph{Connected component}
