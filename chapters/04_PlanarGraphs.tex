@@ -1,0 +1,90 @@
+\section{Planar graphs}
+
+% TODO MISSING KNESER GRAPH
+
+% TODO MISSING PETERSON GRAPH
+
+% TODO MISSING HYPERCUBE
+
+\paragraph{Planar graph tools}
+\begin{itemize}
+  \item \textbf{Homeomorphism}: $ f: \R^n \to \R^n $ continuous s.t. $ f^{-1} $ is also continuous 
+  \item \textbf{Arc}: homeomorphic image of $ [0,1] $ in $ \R^2 $ under $ f $
+  \begin{itemize}
+    \item \emph{endpoints}: $ f(0) $ and $ f(1) $ $ \leadsto $ arc ``joins'' endpoints
+    \item \emph{polynomial arc}: arc that is union of finitely many straight line segments
+  \end{itemize}
+  \item \textbf{Region} $ Y \subseteq \R^2 \setminus X $: any two points $ \in Y $ could be joined by arc and $ Y $ is maximal ($ X \subseteq \R^2 $)
+  \item \textbf{Boundary} of $ X \subseteq \R^2 $:
+    \begin{equation*}
+      \delta X = \{ y \mid \forall \epsilon > 0 : B(y, \epsilon) \text{ contains points of $ X $ and not of $ X $} \}
+    \end{equation*}
+  \item \textbf{Jordan curve theorem}: If $ X \subseteq \R^2 $ and homeomorphic to $ \{ \overline{x} : \text{dist}(\overline{x}, 0) = 1 \} $ (\emph{unit circle}), then $ \R^2 \setminus X $ has two regions $ R_1 $, $ R_2 $ and $ \delta R_1 = X = \delta R_2 $.
+\end{itemize}
+
+\paragraph{Plane graph}
+\begin{itemize}
+  \item \textbf{Definition}: graph such that $ E(G) $ is set of arcs in $ \R^2 $ and endpoints of arcs in $ E(G) $ are vertices and:
+  \begin{itemize}
+    \item $ \forall e, e' \in E $, $ e \neq e' $: $ e $ and $ e' $ have distinct sets of edge sets
+    \item $ \forall e \in E $, $ \mathring{e} = e \setminus \{ \text{endpoints} \} $ doesn't contain any vertices and points from other arcs 
+  \end{itemize}
+  \item \textbf{Faces}: regions of $ \R^2 \setminus \left( \bigcup_{e \in E} e \cup V \right) $
+  \item \textbf{Maximally plane}: no edges can be added without breaking planarity
+  \begin{itemize}
+    \item \emph{plane triangulation}: every face is bounded by triangle $ \Leftrightarrow $ graph is maximally plane 
+  \end{itemize}
+  \item \textbf{Edge limitation 1}: Plane graph: $ \vert G \vert \geq 3 \Rightarrow \Vert G \Vert \leq 3n-6 $
+  \item \textbf{Edge limitation 2}: Plane graph with no $ \triangle $: $ \Vert G \Vert \leq 2\vert G \vert - 4 $
+  \item \textbf{Properties}: Let $ G $ be plane graph and $ H \subseteq G $.
+  \begin{itemize}
+    \item \emph{face inheritance}: $ \forall f \in F(G) \ \exists \ f' \in F(H) : f' \supseteq f $ 
+    \item \emph{border inheritance}: $ \delta f \subseteq H \Rightarrow f' = f $
+    \item \emph{edge-border relations}: $ e \in E(G), f \in F(G) \Rightarrow e \subseteq \delta f \vee \delta f \cap \mathring{e} = \varnothing $
+    \item \emph{edges in circles}:
+      \begin{align*}
+        e \in E(G) \text{ is edge of a cycle } &\Rightarrow e \text{ is on boundary of exactly $ 2 $ faces} \\
+          \text{ not edge of a cycle} &\Rightarrow e \text{ is on boundary of exactly $ 1 $ face}
+      \end{align*}
+      \item \emph{faces in cycles}: $ f_1, f_2 \in F(G) $. $ f_1 \neq f_2 \wedge \delta f_1 = \delta f_2 \Rightarrow G $ is cycle
+      \item \emph{cyclic boundaries}: $ \kappa(G) \geq 2 \Rightarrow $ each face is bounded by cycle
+    \item \emph{plane forests}: plane forests have exactly $ 1 $ face
+  \end{itemize}
+  \item \textbf{Dual multigraph}: Given plane $ G $:
+  \begin{enumerate}
+    \item Insert vertex in each face 
+    \item Put edge $ \tilde{e} $ between vertices if respective faces share $ e $ (s.t. $ \tilde{e} $ and $ e $ cross once)
+    \item \emph{Result}: Dual graph $ G' $ of $ G $ (plane multigraph)
+  \end{enumerate}
+  $ \leadsto $ faces of $ G $ properly $ k $-colored $ \Leftrightarrow \ \exists $ proper $ k $-coloring of vertices of $ G' $
+\end{itemize}
+
+\paragraph{Planar graph}
+\begin{itemize}
+  \item \textbf{Definition}: graph s.t. $ \exists $ plane graph $ G' $ and bijection $ f: V(G) \to V(G') $ s.t. $ \forall u,v \in V(G), \ uv \in E(G) : f(u), \ f(v) $ are endpoints of arc in $ G' $
+  \item \textbf{Planar embedding} of $ G $: $ f $ from the definition
+  \item \textbf{Planar because of minors}: The following statements are equivalent:
+  \begin{itemize}
+    \item $ G $ is planar 
+    \item $ G \not \supseteq MK_5 \wedge G \not \supseteq MK_{3,3} $
+    \item $ G \not \supseteq TK_5 \wedge G \not \supseteq TK_{3,3} $
+  \end{itemize}
+  \item \textbf{Euler's formula}: If $ G $ is connected plane graph with $ f $ faces, then
+    \begin{equation*}
+      \vert G \vert - \Vert G \Vert + f = 2
+    \end{equation*}
+  \item \textbf{$ \delta(G) $ limitation}: Planar graph $ \delta(G) \leq 5 $
+  \item \textbf{Non-planar graphs}: $ K_5 $ and $ K_{3,3} $ are not planar
+  \item \textbf{Kuratowski's lemmas}:
+  \begin{enumerate}
+    \item $ (TK_5 \subseteq G \vee TK_{3,3} \subseteq G) \Leftrightarrow MK_5 \subseteq G \vee MK_{3,3} \subseteq G $ 
+    \item $ \kappa(G) \geq 3 \wedge MK_5 \not \subseteq G \wedge MK_{3,3} \not \subseteq G \Rightarrow G $ is planar
+    \item $ \kappa(G) \geq 3 $, $ G $ edge-maximal wrt not containing $ TX $. If $ S $ is vertex-cut of $ G $, $ \vert S \vert \leq 2 \wedge G = G_1 \cup G_2 $, $ S = V(G_1) \cap V(G_2) $, then $ G_i $ is edge-maximal with no $ TX $ and $ S $ induces an edge
+    \item $ \vert G \vert \geq 3 $, $ G $ edge-maximal wrt not containing $ TK_5 $ and $ TK_{3,3} \Rightarrow \kappa(G) \geq 3 $
+  \end{enumerate}
+  \item \textbf{2-cell} (embedding of $ G $ on surface $ S $): any closed simple curve in any region of $ S - G $ is continuously contractible into a point
+  \item \textbf{Euler characteristic}: $ G $ embedded on surface $ S \Rightarrow n - e + f = $ \emph{Euler characteristic} is invariant
+  \item \textbf{Euler genus}: $ n - e + f = 2 - 2 \gamma \leadsto $ \emph{Euler genus} $ 2 \gamma $ of $ S $
+  \item \textbf{Heawood's formula}: $ \chi(G) \leq \underbrace{\left\lfloor \frac{7 + \sqrt{1 + 48 \gamma}}{2} \right\rfloor}_{f(\gamma)\text{, Heawoods number}} $ \\* (for $ G $ embedded on $ S $ with Euler char $ 2-2\gamma $)
+  \item \textbf{Klein bottle}: $ K_{f(\gamma)} $ is embeddable on $ S $, unless $ S $ is \emph{klein bottle}
+\end{itemize}

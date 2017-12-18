@@ -189,6 +189,19 @@
   \item \textbf{Edge-connectivity}: $ \kappa'(G) = \lambda(G) = \max\{ l : G \text{ is $ l $-edge-connected} \} $
   \item \textbf{Connectivity and smallest degree}: $ \kappa(G) \leq \kappa'(G) \leq \delta(G) $
   \item \textbf{Connectivity and average degree}: $ d(G) \geq 4k \Rightarrow G $ has $ k $-connected subgraph
+
+  \item \textbf{Menger's theorem}: for $ A,B \subseteq V(G) $:
+    \begin{equation*}
+      \text{min \# of vertices separating $ A $ and $ B $} = \text{max \# of disjoint $ A $-$ B $-paths}
+    \end{equation*}
+  \begin{itemize}
+    \item \emph{edge corollary}: minimum number of edges separating $ a $ and $ b = $ maximum number of edge-disjoint $ a $-$ b $-paths 
+  \end{itemize}
+  \item \textbf{Menger global}:
+    \begin{itemize}
+      \item \emph{$ k $-connected} $ \Leftrightarrow \forall a,b \in V(G) \ \exists \ k $ pairwise independent $ ab $-paths
+      \item \emph{$ k $-edge-connected} $ \Leftrightarrow \forall a,b \in V(G) \ \exists \ k $ pairwise edge-disjoint $ ab $-paths 
+    \end{itemize}
 \end{itemize}
 
 \paragraph{Trees and forests}

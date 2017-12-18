@@ -25,6 +25,14 @@
     \item \emph{stable matching} $ M $: \\* $ \forall e \in E \setminus M \ \exists \ f \in M : e $ and $ f $ have common vertex $ v $ with $ e <_v f $
     \item \emph{stable matching existence}: For every set of preferences, $ G $ has stable matching
   \end{itemize}
+  \item \textbf{f-factor}: spanning subgraph $ H \subseteq G $ with $ \deg_H(v) = f(v) $, \\*
+  % TODO Kühn + Osthus on f-factors
+    $ f: V(G) \to \{ 0,1,\dots \} $ with $ f(v) \leq \deg(v) $ \quad ($ \forall v \in V $)
+  \item \textbf{H-factor} (aka \emph{perfect $ H $-packing}): spanning subgraph s.t. each component is $ \cong H $
+  \begin{itemize}
+    \item \emph{existence}: if $ \delta(G) \geq \left( 1 - \tfrac{1}{k}\vert V(G) \vert \right) $ and $ k $ divides $ \vert G \vert $, then $ G $ has $ K_k $-factor
+  \end{itemize}
+  % TODO f-factors in G <=> 1-factors in T(G,f)
 \end{itemize}
 
 \paragraph{Matchings in general graphs}
