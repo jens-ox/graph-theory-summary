@@ -1,5 +1,22 @@
 \section{Connectivity}
 
+\paragraph{2-connected graphs and subgraphs}
+\begin{itemize}
+  \item \textbf{2-connected construction}: $ G $ is $ 2 $-connected $ \Leftrightarrow $ it can be constructed by successively adding paths to a cycle
+  \item \textbf{Block}: maximal $ 2 $-connected subgraph or bridge
+  \begin{itemize}
+    \item share $ \leq 1 $ vertices with another
+    \item \emph{cycles} of $ G = $ cycles of its blocks
+    \item \emph{bounds} of $ G = $ minimal cuts of its blocks
+  \end{itemize} 
+  \item \textbf{Block-cut-vertex graph}
+  \begin{itemize}
+    \item $ V = $ set of blocks $ \cup $ set of vertices
+    \item $ E = \{ \{ v,B \} : v \in V(B) \text{, cut-vertex $ v $, block $ B $} \} $ 
+    \item block-cut-vertex graph of connected graph is tree
+  \end{itemize}
+\end{itemize}
+
 \paragraph{Rest}
 \begin{itemize}
   \item \textbf{Degree sequence}: multiset of degrees of vertices in $ V(G) $
@@ -10,20 +27,6 @@
        \item $ \sum_{i=1}^k d_i \leq k(k-1) + \sum{i = k+1}^n \min(d_i,k) $ \quad ($ \forall 1 \leq k \leq n $)
      \end{enumerate} 
   \end{itemize}
-\end{itemize}
-
-\paragraph{Block}
-\begin{itemize}
-  \item \textbf{Block}: maximal $ 2 $-connected subgraph or bridge
-  \begin{itemize}
-     \item share $ \leq 1 $ vertices with one another 
-   \end{itemize} 
-   \item \textbf{Block-cut-vertex graph}
-   \begin{itemize}
-     \item $ V = $ set of blocks $ \cup $ set of vertices
-     \item $ E = \{ \{ v,B \} : v \in V(B) \text{, cut-vertex $ v $, block $ B $} \} $ 
-     \item block-cut-vertex graph of connected graph is tree
-   \end{itemize}
 \end{itemize}
 
 % TODO MISSING KNESER GRAPH
