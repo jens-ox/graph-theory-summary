@@ -11,11 +11,6 @@
     \item \emph{nearly}: $ G = (A \cup B, E) $, $ \forall S \subseteq A : \vert N(S) \vert \geq \vert S \vert - d $ \ \ \  ($ d \geq 1 $). \\*
       \phantom{\emph{nearly}:} $ \Rightarrow \ \exists $ matching $ M $ saturating all but at most $ d $ vertices of $ A $
   \end{itemize}
-  \item \textbf{Perfect matching}: spanning + matching subgraph of $ G $ (aka \emph{1-factor})
-  \begin{itemize}
-    \item \emph{existence}: $ G $ has perfect matching $ \Leftrightarrow \forall S \subseteq V(G) : q(G-S) \leq S $ \\*
-      ($ q(G) = $ number of components in $ G $ with odd order) 
-  \end{itemize}
   \item \textbf{k-factor}: $ k $-regular spanning subgraph
   \item \textbf{Matching vs vertex cover}: size of largest matching = size of smallest vertex cover \\* (Königs theorem)
   \item \textbf{Matching existence}:
@@ -32,6 +27,15 @@
   \end{itemize}
 \end{itemize}
 
+\paragraph{Matchings in general graphs}
+\begin{itemize}
+  \item \textbf{Perfect matching}: spanning + matching subgraph of $ G $ (aka \emph{1-factor})
+  \begin{itemize}
+    \item \emph{existence (Tutte)}: $ G $ has perfect matching $ \Leftrightarrow \forall S \subseteq V(G) : q(G-S) \leq S $ \\*
+      (Tutte's condition, $ q(G) = $ number of components in $ G $ with odd order)
+    \item \emph{existence (Petersen)}: $ G $ bridgeless + cubic $ \Rightarrow $ $ G $ has $ 1 $-factor
+  \end{itemize}
+\end{itemize}
 
 \paragraph{Rest}
 \begin{itemize}
