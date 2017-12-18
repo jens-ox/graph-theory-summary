@@ -17,6 +17,28 @@
   \end{itemize}
 \end{itemize}
 
+\paragraph{Structure of 3-connected graphs}
+\begin{itemize}
+  \item \textbf{3-connected + decontraction}: all $ 3 $-connected graphs can be built by iteratively de-contracting vertices of $ K_4 $
+  \item \textbf{3-connected + contraction}: $ 3 $-connected $ \Leftrightarrow \ \exists $ separate $ G_0, \dots, G_k $ with
+  \begin{equation*}
+    G_0 = K_4, \ G_k = G, \ G_i = G_{i+1} \circ xy
+  \end{equation*}
+  with $ \deg(x), \deg(y) \geq 3 $
+\end{itemize}
+
+\paragraph{Connectivity}
+\begin{itemize}
+  \item \textbf{$ k $-connected}: if $ \vert G \vert > k $ and deleting $ < k $ vertices does not disconnect $ G $
+  \item \textbf{$ k $-linked}: if for any $ 2k $ vertices $ (s_1, \dots, s_k, t_1, \dots, t_k) \ \exists $ pairwise disjoint $ s_it_i $-paths (\emph{note}: $ k $-connected $ \not \Rightarrow k $-linked)
+  % TODO Wollan 2005: 10k-connected => k-linked
+  \item \textbf{Vertex-connectivity}: $ \kappa(G) = \max\{ k : \text{$ G $ is $ k $-connected} \} $
+  \item \textbf{$ l $-edge-connected}: if deleting $ < l $ edges does not disconnect $ G $
+  \item \textbf{Edge-connectivity}: $ \kappa'(G) = \max\{ l : \text{$ G $ is $ l $-edge-connected} \} $
+  \item \textbf{Vertex- vs Edge-connectivity}: $ \kappa(G) \leq \kappa'(G) \leq \delta(G) $
+  \item \textbf{Three-connected + contraction}: 
+\end{itemize}
+
 \paragraph{Rest}
 \begin{itemize}
   \item \textbf{Degree sequence}: multiset of degrees of vertices in $ V(G) $
@@ -48,23 +70,6 @@
   % TODO f-factors in G <=> 1-factors in T(G,f)
 \end{itemize}
 
-\paragraph{Connectivity}
-\begin{itemize}
-  \item \textbf{$ k $-connected}: if $ \vert G \vert > k $ and deleting $ < k $ vertices does not disconnect $ G $
-  \item \textbf{$ k $-linked}: if for any $ 2k $ vertices $ (s_1, \dots, s_k, t_1, \dots, t_k) \ \exists $ pairwise disjoint $ s_it_i $-paths (\emph{note}: $ k $-connected $ \not \Rightarrow k $-linked)
-  % TODO Wollan 2005: 10k-connected => k-linked
-  \item \textbf{Vertex-connectivity}: $ \kappa(G) = \max\{ k : \text{$ G $ is $ k $-connected} \} $
-  \item \textbf{$ l $-edge-connected}: if deleting $ < l $ edges does not disconnect $ G $
-  \item \textbf{Edge-connectivity}: $ \kappa'(G) = \max\{ l : \text{$ G $ is $ l $-edge-connected} \} $
-  \item \textbf{Vertex- vs Edge-connectivity}: $ \kappa(G) \leq \kappa'(G) \leq \delta(G) $
-  \item \textbf{Three-connected + contraction}: $ 3 $-connected $ \Leftrightarrow \ \exists $ separate $ G_0, \dots, G_k $ with
-  \begin{equation*}
-    G_0 = K_4, \ G_k = G, \ G_i = G_{i+1} \circ xy
-  \end{equation*}
-  with $ \deg(x), \deg(y) \geq 3 $
-  \item \textbf{Three-connected + decontraction}: all $ 3 $-connected graphs can be built by iteratively de-contracting vertices of $ K_4 $
-\end{itemize}
-
 \paragraph{Cuts}
 \begin{itemize}
   \item \textbf{Cut-Set}: $ X \subseteq V(G) \cup E(G) $ s.t. \#components in $ (G-X) $ greater than in $ G $ 
@@ -86,18 +91,6 @@
 \begin{itemize}
   \item \textbf{Definition}: $ G $ has \emph{ear-decomposition} $ \Leftrightarrow \ \exists $ sequence of graphs $ G_0, \dots, G_k $ with $ G_k = G $, $ G_0 = $ cycle, $ G_{i+1} $ obtained from $ G_i $ by attaching ``ear'' (path that shares only endpoints with $ G_i $)
   \item \textbf{2-connected} $ \Leftrightarrow \forall $ cycles $ C $ in $ G $ there is ear-decomposition starting at $ C $
-\end{itemize}
-
-\paragraph{Edge contraction}
-\begin{itemize}
-  \item \textbf{Contraction}:
-  \begin{multline*}
-    G \circ xy = ((V \setminus \{ x,y \}) \cup v_{xy}, \\
-      (E \setminus \{ e: x \in E \vee y \in e \}) \cup \{ v_{xy}z : z \in (N_G(x) \cup N_G(y))\setminus \{ x,y \} \})
-  \end{multline*}
-  with $ xy \in E(G) $
-  \item \textbf{De-contraction}: if $ \exists \ xy \in E(G) : \kappa(G \circ xy) \geq 3 $ \\*
-    (for $ G $ with $ \kappa(G) \geq 3 $, $ \vert G \vert \geq 5 $) 
 \end{itemize}
 
 \paragraph{Planar graph tools}

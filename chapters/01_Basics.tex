@@ -183,6 +183,7 @@
     \item[$ \leadsto $] no two vertices in $ G $ are separated by fewer than $ k $ other vertices
     \item[$ \leadsto $] any two vertices can be joined by $ k $ independent paths
   \end{itemize}
+  \item \textbf{k-linked}: if for any $ 2k $ vertices $ (s_1, \dots, s_k, t_1, \dots, t_k) \ \exists $ pairwise disjoint $ s_it_i $-paths (\emph{note}: $ k $-connected $ \not \Rightarrow k $-linked)
   \item \textbf{Connectivity}: $ \kappa(G) = \max\{ k : G \text{ is $ k $-connected} \} $
   \item \textbf{l-edge-connected}: if $ \vert G \vert > 1 \wedge G - F $ is connected $ \forall F \subseteq E(G) $ with $ \vert F \vert < l $
   \item \textbf{Edge-connectivity}: $ \kappa'(G) = \lambda(G) = \max\{ l : G \text{ is $ l $-edge-connected} \} $
@@ -237,6 +238,14 @@
   \item \textbf{Minor} ($ H $ of $ G $, noted $ H \preccurlyeq G $): $ \Leftrightarrow MH \subseteq G $ \\*
     $ \leadsto H \preccurlyeq G \Leftrightarrow H $ can be obtained by edge/vertex deletions + \textbf{contractions}.
   \item \textbf{Note}: $ TH \subseteq MH $
+  \item \textbf{Edge contraction}:
+  \begin{multline*}
+    G \circ xy = ((V \setminus \{ x,y \}) \cup v_{xy}, \\
+      (E \setminus \{ e: x \in E \vee y \in e \}) \cup \{ v_{xy}z : z \in (N_G(x) \cup N_G(y))\setminus \{ x,y \} \})
+  \end{multline*}
+  with $ xy \in E(G) $
+  \item \textbf{De-contraction}: if $ \exists \ xy \in E(G) : \kappa(G \circ xy) \geq 3 $ \\*
+    (for $ G $ with $ \kappa(G) \geq 3 $, $ \vert G \vert \geq 5 $) 
 \end{itemize}
 
 \paragraph{Euler tours}
