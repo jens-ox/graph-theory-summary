@@ -1,13 +1,9 @@
 \section{Planar graphs}
 
-% TODO MISSING KNESER GRAPH
-
-% TODO MISSING PETERSON GRAPH
-
-% TODO MISSING HYPERCUBE
-
-\paragraph{Planar graph tools}
+\paragraph{Basic definitions}
 \begin{itemize}
+  \item \textbf{Plane graph}: graph drawn without intersecting edges
+  \item \textbf{Planar graph}: graph that \emph{can be} dran as plane graph
   \item \textbf{Homeomorphism}: $ f: \R^n \to \R^n $ continuous s.t. $ f^{-1} $ is also continuous 
   \item \textbf{Arc}: homeomorphic image of $ [0,1] $ in $ \R^2 $ under $ f $
   \begin{itemize}
@@ -22,7 +18,7 @@
   \item \textbf{Jordan curve theorem}: If $ X \subseteq \R^2 $ and homeomorphic to $ \{ \overline{x} : \text{dist}(\overline{x}, 0) = 1 \} $ (\emph{unit circle}), then $ \R^2 \setminus X $ has two regions $ R_1 $, $ R_2 $ and $ \delta R_1 = X = \delta R_2 $.
 \end{itemize}
 
-\paragraph{Plane graph}
+\paragraph{Plane graphs}
 \begin{itemize}
   \item \textbf{Definition}: graph such that $ E(G) $ is set of arcs in $ \R^2 $ and endpoints of arcs in $ E(G) $ are vertices and:
   \begin{itemize}
@@ -30,9 +26,12 @@
     \item $ \forall e \in E $, $ \mathring{e} = e \setminus \{ \text{endpoints} \} $ doesn't contain any vertices and points from other arcs 
   \end{itemize}
   \item \textbf{Faces}: regions of $ \R^2 \setminus \left( \bigcup_{e \in E} e \cup V \right) $
+  \begin{itemize}
+    \item \emph{face set} of graph $ G $: $ F(G) $ 
+  \end{itemize}
   \item \textbf{Maximally plane}: no edges can be added without breaking planarity
   \begin{itemize}
-    \item \emph{plane triangulation}: every face is bounded by triangle $ \Leftrightarrow $ graph is maximally plane 
+    \item \emph{plane triangulation}: every face is bounded by triangle $ \Leftrightarrow $ graph is maximally plane
   \end{itemize}
   \item \textbf{Edge limitation 1}: Plane graph: $ \vert G \vert \geq 3 \Rightarrow \Vert G \Vert \leq 3n-6 $
   \item \textbf{Edge limitation 2}: Plane graph with no $ \triangle $: $ \Vert G \Vert \leq 2\vert G \vert - 4 $
@@ -49,7 +48,14 @@
       \item \emph{faces in cycles}: $ f_1, f_2 \in F(G) $. $ f_1 \neq f_2 \wedge \delta f_1 = \delta f_2 \Rightarrow G $ is cycle
       \item \emph{cyclic boundaries}: $ \kappa(G) \geq 2 \Rightarrow $ each face is bounded by cycle
     \item \emph{plane forests}: plane forests have exactly $ 1 $ face
+    \item \emph{2-connected}: $ 2 $-connected plane graph $ \Rightarrow \forall f \in F(G) $ bounded by cycle
+    \item \emph{3-connected}: boundaries of $ 3 $-connected plane graph = its non-separating induced cycles
+    \item \emph{order $ \geq 3 $}: plane graph of order $ \geq 3 $ maximally plane $ \Leftrightarrow $ is plane triangulation
   \end{itemize}
+  \item \textbf{Euler's formula}: If $ G $ is connected plane graph with $ f $ faces, then
+    \begin{equation*}
+      \vert G \vert - \Vert G \Vert + f = 2
+    \end{equation*}
   \item \textbf{Dual multigraph}: Given plane $ G $:
   \begin{enumerate}
     \item Insert vertex in each face 
@@ -59,7 +65,7 @@
   $ \leadsto $ faces of $ G $ properly $ k $-colored $ \Leftrightarrow \ \exists $ proper $ k $-coloring of vertices of $ G' $
 \end{itemize}
 
-\paragraph{Planar graph}
+\paragraph{Planar graphs}
 \begin{itemize}
   \item \textbf{Definition}: graph s.t. $ \exists $ plane graph $ G' $ and bijection $ f: V(G) \to V(G') $ s.t. $ \forall u,v \in V(G), \ uv \in E(G) : f(u), \ f(v) $ are endpoints of arc in $ G' $
   \item \textbf{Planar embedding} of $ G $: $ f $ from the definition
@@ -69,10 +75,6 @@
     \item $ G \not \supseteq MK_5 \wedge G \not \supseteq MK_{3,3} $
     \item $ G \not \supseteq TK_5 \wedge G \not \supseteq TK_{3,3} $
   \end{itemize}
-  \item \textbf{Euler's formula}: If $ G $ is connected plane graph with $ f $ faces, then
-    \begin{equation*}
-      \vert G \vert - \Vert G \Vert + f = 2
-    \end{equation*}
   \item \textbf{$ \delta(G) $ limitation}: Planar graph $ \delta(G) \leq 5 $
   \item \textbf{Non-planar graphs}: $ K_5 $ and $ K_{3,3} $ are not planar
   \item \textbf{Kuratowski's lemmas}:
@@ -88,3 +90,9 @@
   \item \textbf{Heawood's formula}: $ \chi(G) \leq \underbrace{\left\lfloor \frac{7 + \sqrt{1 + 48 \gamma}}{2} \right\rfloor}_{f(\gamma)\text{, Heawoods number}} $ \\* (for $ G $ embedded on $ S $ with Euler char $ 2-2\gamma $)
   \item \textbf{Klein bottle}: $ K_{f(\gamma)} $ is embeddable on $ S $, unless $ S $ is \emph{klein bottle}
 \end{itemize}
+
+% TODO MISSING KNESER GRAPH
+
+% TODO MISSING PETERSON GRAPH
+
+% TODO MISSING HYPERCUBE
