@@ -1,10 +1,32 @@
-\section{Colouring}
+\section{Coloring}
+
+\paragraph{Base definitions}
+\begin{itemize}
+  \item \textbf{Vertex coloring}: map $ c: V(G) \to S $ with $ c(v) \neq c(w) $ for adjacent $ v,w $
+  \begin{itemize}
+    \item \emph{color set} $ S $
+    \item \emph{k-coloring}: coloring $ c: V(G) \to S $ with $ \vert S \vert = k $
+  \end{itemize}
+  \item \textbf{(Vertex) chromatic number}: $ = \chi(G) \coloneqq \min\{ k \in \N : G \text{ has $ k $-coloring} \} $
+  \begin{itemize}
+    \item \emph{k-chromatic} graph: $ \chi(G) = k $ 
+    \item \emph{k-colorable} graph: $ \chi(G) \leq k $ 
+  \end{itemize}
+  \item \textbf{Color classes}: partitions of $ V(G) $ with same color
+  \item \textbf{Edge coloring}: map $ c: E(G) \to S $ with $ c(e) \neq c(f) $ for adjacent $ e,f $
+  \begin{itemize}
+    \item edge coloring of $ G  \Leftrightarrow $ vertex coloring of $ L(G) $
+    \item \emph{k-edge-coloring}: edge-coloring $ c: E(G) \to S $ with $ \vert S \vert = k $
+  \end{itemize}
+  \item \textbf{Edge chromatic number}: $ = \chi'(G) \coloneqq \min\{ k \in \N : G \text{ has $ k $-edge-coloring} \} $
+\end{itemize}
 
 \paragraph{Coloring}
 \begin{itemize}
   \item \textbf{Co-clique number}: $ \alpha(G) = $ size of largest independent set
   \item \textbf{Clique number}: $ \omega(G) = $ size of largest clique
   \item \textbf{Proper coloring}: $ = c : V(G) \to [k] $ with $ c(u) \neq c(v) \quad (\forall uv \in E(G)) $
+  \item \textbf{Color classes}: Partitions of equally colored vertices
   \item \textbf{Equitable coloring}: proper coloring + color classes have almost ($ \pm 1 $) equal size
   \begin{itemize}
     \item \emph{existence}: any graph has equitable coloring in $ (\Delta(G) + 1) $ colors 
