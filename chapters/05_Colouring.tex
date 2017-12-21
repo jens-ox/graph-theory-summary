@@ -9,10 +9,20 @@
   \end{itemize}
   \item \textbf{(Vertex) chromatic number}: $ = \chi(G) \coloneqq \min\{ k \in \N : G \text{ has $ k $-coloring} \} $
   \begin{itemize}
+    \item $ \chi(G) \geq \omega(G) $ 
+    \item $ \chi(G) \geq \frac{\vert G \vert}{\alpha(G)} $
+    \item $ \chi(G) \leq \Delta(G) + 1 $ (\emph{greedy coloring})
+    \item $ G $ connected, not complete, no odd cycles $ \Rightarrow \chi(G) \leq \Delta(G) $
     \item \emph{k-chromatic} graph: $ \chi(G) = k $ 
     \item \emph{k-colorable} graph: $ \chi(G) \leq k $ 
   \end{itemize}
   \item \textbf{Color classes}: partitions of $ V(G) $ with same color
+  \item \textbf{Equitable coloring}: proper coloring + color classes have almost ($ \pm 1 $) equal size
+  \begin{itemize}
+    \item \emph{existence}: any graph has equitable coloring in $ (\Delta(G) + 1) $ colors 
+  \end{itemize}
+  \item \textbf{ij-flip}: $ c': V(G) \to [k] $ is $ ij $-flip at $ v \in V(G) $ \\*
+    $ \Leftrightarrow c' $ obtained by flipping colors $ i $ and $ j $ in max. conn. component containing $ v $
   \item \textbf{Edge coloring}: map $ c: E(G) \to S $ with $ c(e) \neq c(f) $ for adjacent $ e,f $
   \begin{itemize}
     \item edge coloring of $ G  \Leftrightarrow $ vertex coloring of $ L(G) $
@@ -21,33 +31,26 @@
   \item \textbf{Edge chromatic number}: $ = \chi'(G) \coloneqq \min\{ k \in \N : G \text{ has $ k $-edge-coloring} \} $
 \end{itemize}
 
-\paragraph{Coloring}
+\paragraph{Coloring maps and planar graphs}
 \begin{itemize}
-  \item \textbf{Co-clique number}: $ \alpha(G) = $ size of largest independent set
-  \item \textbf{Clique number}: $ \omega(G) = $ size of largest clique
-  \item \textbf{Proper coloring}: $ = c : V(G) \to [k] $ with $ c(u) \neq c(v) \quad (\forall uv \in E(G)) $
-  \item \textbf{Color classes}: Partitions of equally colored vertices
-  \item \textbf{Equitable coloring}: proper coloring + color classes have almost ($ \pm 1 $) equal size
-  \begin{itemize}
-    \item \emph{existence}: any graph has equitable coloring in $ (\Delta(G) + 1) $ colors 
-  \end{itemize}
-  \item \textbf{4-color-theorem}: $ G $ planar $ \Rightarrow \chi(G) \leq 4 $ 
-  \item \textbf{ij-flip}: $ c': V(G) \to [k] $ is $ ij $-flip at $ v \in V(G) $ \\*
-    $ \Leftrightarrow c' $ obtained by flipping colors $ i $ and $ j $ in max. conn. component containing $ v $
-  \item 
+  \item \textbf{4-color-theorem}: every planar graph is 4-colorable
+  \item \textbf{3-color-theorem}: every triangle-free planar graph is 3-colorable
 \end{itemize}
 
-\paragraph{Chromatic number}
+\paragraph{Coloring vertices}
 \begin{itemize}
-  \item \textbf{Definition}: $ \chi(G) = \min\{ k: G \text{ has proper coloring with } k \text{ colors} \} $ 
-  \item \textbf{Examples}: $ \chi(C_{2n}) = 2 $, $ \chi(C_{2n+1}) = 3 $
-  \item \textbf{Properties}:
+  \item \textbf{Chromatic number upper bound}: $ \chi(G) \leq \frac{1}{2} + \sqrt{2\Vert G \Vert + \frac{1}{4}} $ 
+  \item \textbf{Greedy coloring}: sort vertices $ v_1, \dots, v_n $, color them with the smallest possible color starting at $ v_1 $
   \begin{itemize}
-    \item $ \chi(G) \geq \omega(G) $ 
-    \item $ \chi(G) \geq \frac{\vert G \vert}{\alpha(G)} $
-    \item $ \chi(G) \leq \Delta(G) + 1 $ (\emph{greedy coloring})
-    \item $ G $ connected, not complete, no odd cycles $ \Rightarrow \chi(G) \leq \Delta(G) $
+    \item[$ \leadsto $] never uses more than $ \Delta(G) + 1 $ colors 
   \end{itemize}
+  \item \textbf{coloring number} of graph $ G $: $ \text{col}(G) \coloneqq $ smallest $ k $ s.t. $ G $ has vertex enumeration where each vertex is preceded by $ < k $ neighbors
+\end{itemize}
+
+\paragraph{Coloring edges}
+\begin{itemize}
+  \item \textbf{Vizing's theorem}: for every graph $ G $, $ \chi'(G) \in \{ \Delta(G), \Delta(G) + 1 \} $
+  \item \textbf{Bipartite graphs}: $ \chi'(G) = \Delta(G) $
 \end{itemize}
 
 \paragraph{Perfect graph}
