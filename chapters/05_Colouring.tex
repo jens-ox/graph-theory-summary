@@ -53,9 +53,25 @@
   \item \textbf{Bipartite graphs}: $ \chi'(G) = \Delta(G) $
 \end{itemize}
 
-\paragraph{Perfect graph}
+\paragraph{List coloring}
 \begin{itemize}
-  \item \textbf{Definition}: $ \forall H \underset{\text{ind}}{\subseteq} G : \chi(H) = \omega(H) $
+  \item \textbf{L-list-colorable}: if $ \exists \ c: V \to \N \ \forall v \in V : c(v) \in L(v) $ \\*
+  (for \emph{list of colors} $ L(v) \subseteq \N $ for each vertex, adjacent vertices receive different colors) 
+  \item \textbf{k-list-colorable/-choosable}: if $ G $ is $ L $-list-colorable for each list $ L $
+  \item \textbf{List chromatic number}: $ \chi_l(G) = \text{ch}(G) $ \\* $ = \min\left\{ k : G \text{ is $ L $-colorable } \forall L: V \to 2^\N: \vert L(v) \vert = k \forall v \in V(G) \right\} $
+  \begin{itemize}
+    \item $ \chi_l(G) \geq \chi(G) $ because we can choose $ L(v) = \{ 1, \dots, k \} $ ($ \forall v \in V(G) $) 
+    \item often $ \chi_l(G) \gg \chi(G) $ (see $ K_{m,n} $: $ \chi = 2 $, $ \chi_l \approx \log n $)
+  \end{itemize}
+  \item \textbf{Planar graphs}: $ \chi_l(G) \leq 5 $
+  \item \textbf{Locally planar graphs}: $ \chi_l(G) \leq 5 $
+\end{itemize}
+
+\paragraph{Perfect graphs}
+\begin{itemize}
+  \item \textbf{Clique number} of graph $ G $: $ \omega(G) \coloneqq \max\{ k \in \N : K_k \subseteq G \} $
+  \item \textbf{Independence number} of graph $ G $: size of largest independent vertex set
+  \item \textbf{Perfect graph}: $ \forall H \underset{\text{ind}}{\subseteq} G : \chi(H) = \omega(H) $
   \item \textbf{Perfect complement}: $ G $ is perfect $ \Leftrightarrow \overline{G} $ is perfect
   \item \textbf{Perfect graph conjecture}: $ G $ is perfect $ \Leftrightarrow $
     \begin{equation*}
@@ -69,18 +85,4 @@
   \item \textbf{Incidence poset} of $ G $: poset whose cover diagram is represented by $ IG $ with vertices all below the edges
   \item \textbf{Poset dimension}: $ \dim(R) = $ smallest $ k \in \N : R $ is intersection of $ k $ total orders
   \item \textbf{Poset dimension in planar graphs}: $ G $ planar $ \Leftrightarrow \dim(\text{incidence poset}) \leq 3 $
-\end{itemize}
-
-\paragraph{List-colorings}
-\begin{itemize}
-  \item \textbf{L-list-colorable}: if $ \exists \ c: V \to \N \ \forall v \in V : c(v) \in L(v) $ \\*
-  (for \emph{list of colors} $ L(v) \subseteq \N $ for each vertex, adjacent vertices receive different colors) 
-  \item \textbf{k-list-colorable/-choosable}: if $ G $ is $ L $-list-colorable for each list $ L $
-  \item \textbf{List chromatic number}: $ \chi_l(G) = \text{ch}(G) $ \\* $ = \min\left\{ k : G \text{ is $ L $-colorable } \forall L: V \to 2^\N: \vert L(v) \vert = k \forall v \in V(G) \right\} $
-  \begin{itemize}
-    \item $ \chi_l(G) \geq \chi(G) $ because we can choose $ L(v) = \{ 1, \dots, k \} $ ($ \forall v \in V(G) $) 
-    \item often $ \chi_l(G) \gg \chi(G) $ (see $ K_{m,n} $: $ \chi = 2 $, $ \chi_l \approx \log n $)
-  \end{itemize}
-  \item \textbf{Planar graphs}: $ \chi_l(G) \leq 5 $
-  \item \textbf{Locally planar graphs}: $ \chi_l(G) \leq 5 $
 \end{itemize}
