@@ -114,6 +114,7 @@
 
 % custom section
 \titleformat{\section}{\normalfont\huge}{}{0em}{}
+\titlespacing*{\section}{0em}{1em}{0em}
 
 
 % custom paragraph
