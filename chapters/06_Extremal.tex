@@ -1,0 +1,32 @@
+\section{Extremal Graph Theory}
+
+\paragraph{Base definitions}
+\begin{itemize}
+  \item \textbf{Sparse} graph: $ \Vert G \Vert \sim \vert G \vert $ 
+  \item \textbf{Dense} graph: $ \Vert G \Vert \sim \vert G \vert^2 $
+  \item \textbf{Edge density} of graph $ G $: $ \Vert G \Vert / \left(\begin{smallmatrix}
+    \vert G \vert \\ 2
+  \end{smallmatrix}\right) $
+\end{itemize}
+
+\paragraph{Subgraphs}
+\begin{itemize}
+  \item \textbf{Extremal number}: $ \text{ex}(n,H) \coloneqq \max\{ \Vert G \Vert : \vert G \vert = n \wedge H \not \subseteq G \} $
+  \item \textbf{Extremal set}: $ \text{EX}(n,H) \coloneqq \{ G : \vert G \vert = n \wedge \Vert G \Vert = \text{ex}(n,H) \wedge H \not \subseteq G \} $
+  \item \textbf{Turán graph}: $ T(n,r) = $ unique complete $ r $-partite graph with $ \vert T(n,r) \vert = n $, partite sets differing at most by $ 1 $ ($ 1 \leq r \leq n $)
+  \begin{itemize}
+    \item $ K_{r+1} \not \subseteq T(n,r) $
+    \item \emph{size}: $ \Vert T(n,r) \Vert \eqqcolon t(n,r) $ 
+    \item \emph{special Turán graph}: $ K_r^s \coloneqq T(n,r) $ if $ n = r*s $
+    \item \emph{Turán-graphs edge-maximal}: among all $ r $-partite graphs of order $ n $, $ T(n,r) $ has largest size
+    \item $ t(n,r) = t(n-r,r) + (n-r)(r-1) + \left( \begin{smallmatrix}
+      r \\ 2
+    \end{smallmatrix} \right) $
+    \item \emph{size difference to complete graph}:
+    \begin{equation*}
+      \lim_{n \to \infty} \frac{t(n-r)}{\left( \begin{smallmatrix}
+        n \\ 2
+      \end{smallmatrix} \right)} = \left( 1 - \frac{1}{r} \right)
+    \end{equation*}
+  \end{itemize}
+\end{itemize}
