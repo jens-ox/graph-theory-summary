@@ -42,7 +42,15 @@
     \item[$ \Leftrightarrow $] $ \text{EX}(n,K_r) = \{ T(n,r-1) \} $ 
   \end{itemize}
   \item \textbf{Szemerédi's regularity lemma}: $ \forall \epsilon > 0 \forall 1 \leq m \in \N \ \exists \ M \in \N : $ every graph $ G $ with $ \vert G \vert \geq m $ has $ \epsilon $-regular partition $ V_0 \dot{\cup} \cdots \dot{\cup} V_k $ with $ m \leq k \leq M $.
-  \item \textbf{Erd\H{o}s-Stone theorem}
+  \item \textbf{Erd\H{o}s-Stone theorem}: $ \forall $ integers $ r > s \geq 1 $ and any $ \epsilon > 0 \ \exists \ n_0 \in \N : $ every graph with $ \vert G \vert = n \geq n_0 $ and $ \Vert G \Vert \geq t(n,r-1) + \epsilon n^2 $ has $ K_r^s \subseteq G $.
+  \begin{itemize}
+    \item \emph{corollary}: the theorem together with the size difference to complete graph yields
+    \begin{equation*}
+       \lim_{n \to \infty} \frac{ex(n,H)}{\left( \begin{smallmatrix}
+         n \\ 2
+       \end{smallmatrix} \right)} = \frac{\chi(H) - 2}{\chi(H) - 1}
+     \end{equation*} 
+  \end{itemize}
   \item \textbf{Chvátal-Szemerédi theorem}
   \item \textbf{Zarankiewicz function}
   \item \textbf{K\H{o}vári-Sós-Turán theorem}
