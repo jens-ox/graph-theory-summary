@@ -51,14 +51,37 @@
        \end{smallmatrix} \right)} = \frac{\chi(H) - 2}{\chi(H) - 1}
      \end{equation*} 
   \end{itemize}
-  \item \textbf{Chvátal-Szemerédi theorem}
-  \item \textbf{Zarankiewicz function}
-  \item \textbf{K\H{o}vári-Sós-Turán theorem}
-  \item \textbf{Bound for $ \text{ex}(n,K_{t,s}) $}
-  \item \textbf{Bound for $ \text{ex}(n,K_{r,r}) $}
-  \item \textbf{Hadwiger conjecture}
-  \item \textbf{Bollobás-Thomason theorem}
-  \item \textbf{Minimum degree + girth = minor}
-  \item \textbf{Thomassen's theorem}
-  \item \textbf{Kühn-Osthus theorem}
+  \item \textbf{Chvátal-Szemerédi theorem}: $ \forall \epsilon > 0 $ and any integer $ r \geq 3 $, any graph with $ \vert G \vert = n $ and $ \Vert G \Vert \geq (1-\frac{1}{r-1} + \epsilon)\left( \begin{smallmatrix}
+    n \\2
+  \end{smallmatrix} \right) $ has $ K_r^t \subseteq G $ with $ t = \frac{\log n}{500\log\left(\frac{1}{\epsilon}\right)} $
+  \begin{itemize}
+    \item \emph{existance}: $ \exists \ G $ with $ \vert G \vert = n $ and $ \Vert G \Vert = (1-\frac{1+\epsilon}{r-1})\left( \begin{smallmatrix}
+      n \\ 2
+    \end{smallmatrix} \right) $ with $ G \not \subseteq K_r^t $ for $ t = \frac{5\log n}{\log\left( \frac{1}{\epsilon} \right)} $
+  \end{itemize}
+  \item \textbf{Zarankiewicz function}: $ z(m,n;s,t) = $ maximum \# of edges that bipartite graph with parts of size $ m $ and $ n $ can have without containing $ K_{s,t} $
+  \item \textbf{K\H{o}vári-Sós-Turán}: $ z(m,n;s,t) \leq (s-1)^{\frac{1}{t}}(n-t+1)m^ {1-\frac{1}{t}}+(t-1)m $
+  \begin{itemize}
+    \item $ m = n $, $ t = s $: $ \quad z(n,n;t,t) \leq c_1 n n^{1-\frac{1}{t}}+c_2n = \mathcal{O}(n^{2-\frac{1}{t}}) $ 
+  \end{itemize}
+  \item \textbf{Bound for $ \text{ex}(n,K_{t,s}) $}: $ \leq \frac{1}{2}z(n,n;s,t) \leq cn^{2-\frac{1}{s}} $ ($ t \geq s \geq 1 $)
+  \begin{itemize}
+    \item $ t = s = 2 $: $ \quad \text{ex}(n,C_4) \leq \frac{n}{4}(1+\sqrt{4n - 3}) $ 
+  \end{itemize}
+  \item \textbf{Bound for $ \text{ex}(n,K_{r,r}) $}: $ \geq cn^{2-\frac{2}{r+1}} $ ($ \forall n,r \in \N $)
+  \item \textbf{Bound for $ \text{ex}(n,P_{k+1}) $}: $ \leq \frac{n(k-1)}{2} $
+\end{itemize}
+
+\paragraph{Minors}
+\begin{itemize}
+  \item \textbf{Hadwiger conjecture}: $ \chi(G) \geq r \Rightarrow MK_r \subseteq G $
+  \begin{itemize}
+    \item $ r \in \{ 1,2,3,4 \} $: easy to see
+    \item $ r \in \{ 5,6 \} $: proven using $ 4 $-color theorem
+    \item $ r \geq 7 $: still open 
+  \end{itemize}
+  \item \textbf{Bollobás-Thomason theorem}: $ d(G) \geq cr^2 \Rightarrow TK_r \subseteq G $
+  \item \textbf{Minimum degree + girth = minor}: $ \delta(G) \geq d $, $ g(G) \geq 8k+3 $ ($ d,k \in \N $, $ d \leq 3 $). Then $ MH \subseteq G $ with $ \delta(H) \geq d(d-1)^k $.
+  \item \textbf{Thomassen's theorem}: $ \forall r \in \N \ \exists \ f: \N \to \N $ s.t. every $ G $ with $ \delta(G) \geq 3 $ and $ g(G) \geq f(r) $ has $ K_r $ minor
+  \item \textbf{Kühn-Osthus theorem}: $ \forall r \in \N \ \exists \ g \in \N : TK_r \subseteq G $ for all $ G $ with $ \delta(G) \geq r -1 $ and $ g(G) \geq g $
 \end{itemize}
