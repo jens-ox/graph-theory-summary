@@ -4,9 +4,17 @@
 \begin{itemize}
   \item \textbf{Sparse} graph: $ \Vert G \Vert \sim \vert G \vert $ 
   \item \textbf{Dense} graph: $ \Vert G \Vert \sim \vert G \vert^2 $
+  \item \textbf{Density}: $ \Vert X,Y \Vert \coloneqq \# $ edges between $ X $ and $ Y $, $ d(X,Y) \coloneqq \frac{\Vert X,Y \Vert}{\vert X \vert\vert Y \vert} $  
   \item \textbf{Edge density} of graph $ G $: $ \Vert G \Vert / \left(\begin{smallmatrix}
     \vert G \vert \\ 2
   \end{smallmatrix}\right) $
+  \item \textbf{$ \epsilon $-regular pair} $ (X,Y) $: if $ \vert d(X,Y) - d(A,B) \vert \leq \epsilon $ for $ \epsilon > 0 $ and all $ A \subseteq X $, $ B \subseteq Y $ with $ \vert A \vert \geq \epsilon \vert X \vert $, $ \vert B \vert \geq \epsilon \vert Y \vert $
+  \item \textbf{$ \epsilon $-regular partition}: $ = V_0 \dot{\cup} \cdots \dot{\cup} V_k = V $ with
+  \begin{enumerate}
+    \item $ \vert V_0 \vert \leq \epsilon \vert V \vert $ 
+    \item $ \vert V_1 \vert = \cdots = \vert V_k \vert $
+    \item all but at most $ \epsilon k^2 $ of $ (V_i,V_j) $-pairs ($ 1 \leq i < j \leq k $) are $ \epsilon $-regular
+  \end{enumerate}
 \end{itemize}
 
 \paragraph{Subgraphs}
@@ -29,4 +37,20 @@
       \end{smallmatrix} \right)} = \left( 1 - \frac{1}{r} \right)
     \end{equation*}
   \end{itemize}
+  \item \textbf{Turán's theorem}: $ \forall r > 1, n \geq 1 $, any graph $ G $ with $ \vert G \vert = n $, $ \Vert G \Vert = \text{ex}(n,K_r) $ and $ K_r \not \subseteq G $ is a $ T(n,r-1) $
+  \begin{itemize}
+    \item[$ \Leftrightarrow $] $ \text{EX}(n,K_r) = \{ T(n,r-1) \} $ 
+  \end{itemize}
+  \item \textbf{Szemerédi's regularity lemma}: $ \forall \epsilon > 0 \forall 1 \leq m \in \N \ \exists \ M \in \N : $ every graph $ G $ with $ \vert G \vert \geq m $ has $ \epsilon $-regular partition $ V_0 \dot{\cup} \cdots \dot{\cup} V_k $ with $ m \leq k \leq M $.
+  \item \textbf{Erd\H{o}s-Stone theorem}
+  \item \textbf{Chvátal-Szemerédi theorem}
+  \item \textbf{Zarankiewicz function}
+  \item \textbf{K\H{o}vári-Sós-Turán theorem}
+  \item \textbf{Bound for $ \text{ex}(n,K_{t,s}) $}
+  \item \textbf{Bound for $ \text{ex}(n,K_{r,r}) $}
+  \item \textbf{Hadwiger conjecture}
+  \item \textbf{Bollobás-Thomason theorem}
+  \item \textbf{Minimum degree + girth = minor}
+  \item \textbf{Thomassen's theorem}
+  \item \textbf{Kühn-Osthus theorem}
 \end{itemize}
