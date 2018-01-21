@@ -1,0 +1,63 @@
+\section{Ramsey theory}
+
+\paragraph{Base definitions}
+\begin{itemize}
+  \item \textbf{Monochromatic} edge coloring: all edges have same color
+  \item \textbf{Rainbow} edge coloring: no two edges have same color
+  \item \textbf{Lexical} edge coloring: two edges have same color \( \Leftrightarrow \) have same lower endpoint in some vertex ordering
+  \item \textbf{Ramsey number} \( R(k) \in \N \): smallest \( n \) s.t. every \( 2 \)-edge-coloring of \( K_n \) contains monochromatic \( K_k \) (\( n \in \N \))
+  \item \textbf{Asymmetric Ramsey number} \( R(k,l) \): smallest \( n \in \N \) s.t. every \( 2 \)-edge-coloring of \( K_n \) contains red \( K_k \) or blue \( K_l \) (\( k,l \in \N \))
+  \item \textbf{Graph Ramsey number} \( R(G,H) \): smallest \( n \in \N \) s.t. every \( 2 \)-edge-coloring of \( K_n \) contains red \( G \) or blue \( H \)
+  \item \textbf{Hypergraph Ramsey number} \( R_r(l_1, \dots, l_k) \): smallest \( n \in \N \) s.t.\ for every \( k \)-coloring of \( \left( \begin{smallmatrix}
+    [n] \\ r
+  \end{smallmatrix} \right) \) \( \exists \ i  \in \left \{ 1, \dots, k \right \} \) and a \( V \subseteq [n] \) with \( \left\vert V \right\vert = l \) s.t. all sets in \( \left( \begin{smallmatrix}
+    V \\ r
+  \end{smallmatrix} \right) \) have color \( i \)
+  \item \textbf{Induced Ramsey number} \( R_{\text{ind}}(G,H) \): smallest \( n \in \N \) s.t. \( \exists \) graph \( F \) with \( \left\vert F \right\vert = n \) with every \( 2 \)-coloring of it containing red \( G \) or blue \( H \)
+  \item \textbf{Anti Ramsey number} \( AR(n,H) \): maximum number of colors that edge-coloring on \( K_n \) can have without containing rainbow copy of \( H \)
+  \item \textbf{r-regular matrix}: if there is a monochromatic solution of \( Ax = 0 \) for any \( r \)-coloring \( c: \N \to [r] \) of \( \N \)
+  \item \textbf{column condition}: matrix fulfills it if there is partition \( C_1 \dot{\cup} \cdots \dot{\cup} C_l \) of \( A \)-columns s.t. the following holds: \\
+  Let \( s_i \coloneqq \sum_{c \in C_i}c \) for \( i \in [l] \). Then \( s_1 = 0 \) and every \( s_i \) is linear combination of columns in \( C_1 \dot{\cup} \cdots \dot{\cup} C_{i-1} \) (\( 2x_1 + x_2 + x_3 - 4x_4 \) fulfills: \( 2+1+1-4 = 0 \))
+\end{itemize}
+
+\paragraph{Observations}
+\begin{itemize}
+  \item \( R(3) = 6 \)
+  \item \( R(2,k) = R(k,2) = k \)
+  \item \textbf{Ramsey theorem}: \( \forall k \in \N : \sqrt{2}^k \leq R(k) \leq 4^k \)
+  \begin{itemize}
+    \item[\( \to \)] (Asymmetric) Ramsey numbers and graph Ramsey numbers are finite
+  \end{itemize}
+  \item \textbf{Induction theorem}: \( \forall k,l \in \N : R(k,l) \leq R(k-1,l) + R(k,l-1) \)
+  \begin{itemize}
+    \item[\( \to \)] \( R(k,l) \leq \left( \begin{smallmatrix}
+      k+l-2 \\ k-1
+    \end{smallmatrix} \right) \)
+  \end{itemize}
+  \item \textbf{Hypergraph recursion}:
+  \begin{equation*}
+    \forall r,p,q \in \N : R_r(p,q) \leq R_{r-1}(R_r(q-1,q),R_r(p,q-1)) + 1
+  \end{equation*}
+  \item \( 2 \)-\textbf{Hypergraph boundary}: \( c_1 2^k \leq R_2(\underbrace{3 * \cdots * 3}_{k \text{ times}}) \leq c_2 k! \) for some \( c_1, c_2 > 0 \)
+\end{itemize}
+
+\paragraph{Ramsey theory applications}
+\begin{itemize}
+  \item \textbf{Erd\H{o}s-Szekeres subsequences}: Any sequence of \( (r-1)(s-1)+1 \) distinct real numbers contains increasing subsequence of length \( r \) or a decreasing subsequence of length \( s \)
+  \item \textbf{Erd\H{o}s-Szekeres m-gons}: \( \forall m \in \N \ \exists \ N \in \N : \) every set of \( \geq N \) points in general position in \( \R^2 \) contains the vertex set of a convex \( m \)-gon
+  \item \textbf{Schur}: Let \( c: \N \to [r] \) be coloring of the natural numbers with \( r \in \N \) colors. Then there are \( x,y,z \in \N \) of same color with \( x+y = z \)
+  \item \textbf{Rado theorem}: \( A \) fulfills column condition \( \Rightarrow \) \( A \) is \( r \)-regular \( \forall r \in \N \) \\  (\( A \in \Z^{n \times k} \))
+  \item \( \forall s,t \in \N \) with \( s \geq t \geq 1 \): \( R(sK_2,tK_2) = 2s+t-1 \)
+  \item \( \forall s,t \in \N \) with \( s \geq t \geq 1 \): \( R(sK_3,tK_3) = 3s+2t \)
+  \item \textbf{Chvátal-Harary}: \( R(G,H) \geq (\chi(G)-1)(c(H)-1)+1 \) \\ (\( c(H) \) order of largest component of \( H \))
+  \item \( R_{\text{ind}}(G,H) \) is finite for all graphs \( G \), \( H \)
+  \item \textbf{Canonical Ramsey theorem}: \( \forall k \in \N \ \exists \ n \in \N : \) any edge coloring of \( K_n \) with arbitrarily many colors contains monochromatic, rainbow or lexical \( K_k \)
+  \item \( \forall \Delta \in \N \ \exists \ c \in \N : \) for every graph \( H \) with \( \Delta(H) = \Delta \) we have \( R(H,H) \leq c\left\vert V(H) \right\vert \)
+  \item For any \( n \)-vertex graph \( H \) with \( \Delta(H) = 3 \) we have \( R(H,H) \leq cn \) for some \( c > 0 \), which grows way slower than \( R(K_n,K_n) \geq \sqrt{2}^n \)
+  \item \textbf{Anti-Ramsey theorem}:
+  \begin{equation*}
+    \forall n,r \in \N : AR(n,K_r) = \left( \begin{smallmatrix}
+      n \\ 2
+    \end{smallmatrix} \right) \left( 1 - \tfrac{1}{r-2} \right)(1-o(1))
+  \end{equation*}
+\end{itemize}
