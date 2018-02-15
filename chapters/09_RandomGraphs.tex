@@ -1,0 +1,54 @@
+\section{Random Graphs}
+
+% helper
+\newcommand{\G}{\mathcal{G}}
+
+\paragraph{Erd\H{o}s-Rényi Model}
+\begin{itemize}
+  \item \textbf{Erd\H{o}s-Renyi Model}: \( \G(n,p) \) probability space on \( n \)-vertex graphs resulted by independently deciding whether to include each of the \( \binom{n}{2} \) possible edges with fixed probability \( p \in [0,1] \)
+  \item \textbf{Property} \( \mathcal{P} \): set of graphs (e.g. \( \mathcal{P} = \left \{ G : G \text{ is \( k \)-connected} \right \} \))
+  \item \textbf{Almost always}: let \( (p_n) \in [0,1]^\N \). \( G \in \G(n,p_n) \) has property \( \mathcal{P} \) \emph{almost always} \( \Leftrightarrow \lim_{n \to \infty} \text{Prob}(G \in \G(n,p_n) \cap \mathcal{P}) = 1 \)
+  \item \textbf{Almost all}: like almost always, but \( (p_n) = \) constant \( p \)
+  \item \textbf{Threshold function}: \( f(n) : \N \to [0,1] \) \emph{threshold function} for property \( \mathcal{P} \) if
+  \begin{enumerate}
+    \item \( \forall (p_n) \in [0,1]^\N \), \( p_n/f(n) \overset{n \to \infty}{\longrightarrow} 0 : G \in \G(n,p_n) \) almost always does \textbf{not} have property \( \mathcal{P} \)
+    \item \( \forall (p_n) \in [0,1]^\N \), \( p_n/f(n) \overset{n \to \infty}{\longrightarrow} \infty : G \in \G(n,p_n ) \) almost always \textbf{has} propertpy \( \mathcal{P} \)
+  \end{enumerate}
+  \begin{itemize}
+    \item[!] not all properties \( \mathcal{P} \) have a threshold function
+  \end{itemize}
+\end{itemize}
+
+\paragraph{Basic probability properties}
+\begin{itemize}
+  \item \( G \) with \( \left\vert G \right\vert = n \), \( \left\Vert G \right\Vert = m \): \( \text{Prob}(G = \G(n,p)) = p^m(1-p)^{\binom{n}{2}-m} \)
+  \item \( \text{Prob}(G \in \G(n,p), \alpha(G) \geq k) \leq \binom{n}{k}(1-p)^{\binom{k}{2}} \) \enskip (\( n \geq k \geq 2 \))
+  \item \( \text{Prob}(G \in \G(n,p),\omega(G) \geq k) \leq \binom{n}{k}p^{\binom{n}{k}} \)
+\end{itemize}
+
+\paragraph{More complex results}
+\begin{itemize}
+  \item \( \text{Exp}(\# k \text{-cycles in } G \in \G(n,p)) = \frac{n_k}{2k}p^k \) (\( n_k = n(n-1)\cdots (n-k+1) \))
+  \item \textbf{Erd\H{o}s}: \( \forall k \in \N \ \exists \) graph \( H : g(H) \geq k \wedge \chi(H) \geq k \)
+  \item \( \forall p \in (0,1) \), graph \( H \), almost all \( G \in \G(n,p) \) contain \( H \) as induced subgraph
+  \item \( \forall p \in (0,1) \), \( \epsilon > 0 \), almost all \( G \in \G(n,p) \) fulfill
+  \begin{equation*}
+    \chi(G) > \frac{\log(1/(1-p))}{2+\epsilon}\frac{n}{\log n}
+  \end{equation*}
+  \item \textbf{Asymptotic behaviour of \( \G(n,p) \) for some properties}:
+  \begin{itemize}
+    \item \( p_n = \sqrt{n}/n^2 \Rightarrow G \) almost always has component with \( > 2 \) vertices
+    \item \( p_n = 1/n \Rightarrow G \) almost always has a cycle
+    \item \( p_n = \log n/n \Rightarrow G \) is almost always connected
+    \item \( p_n = (1+\epsilon)\log n/n \Rightarrow G \) almost always has Hamiltonian cycle
+    \item \( p_n = n^{-2/(k-1)} \) is the threshold function for containing \( K_k \)
+  \end{itemize}
+  \item \textbf{Lovász Local}: \( A_1,\dots,A_n \) events in some probabilistic space. If \( \text{Prob}(A_i) \leq p \in (0,1) \), each \( A_i \) is mutually independent from all but at most \( d \in \N \ A_i \)s and \( \text{ep}(d+1) \leq 1 \), then
+  \begin{equation*}
+    \text{Prob}\left( \bigwedge_{i=1}^n \overline{A_i} \right) > 0
+  \end{equation*}
+  \item \textbf{Van der Waerden's number}: \( W(k) = \) smallest \( n \) s.t. any \( 2 \)-coloring of \( [n] \) contains monochromatic arithmetic progression of length \( k \)
+  \begin{itemize}
+    \item[\( \to \)] using Lovász Local Lemma: \( W(k) \geq 2{k-1}/(ek^2) \)
+  \end{itemize}
+\end{itemize}
