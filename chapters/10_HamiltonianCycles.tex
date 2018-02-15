@@ -1,0 +1,18 @@
+\section{Hamiltonian Cycles}
+
+\paragraph{Definitions}
+\begin{itemize}
+  \item \textbf{Hamiltonian cycle}: Closed walk on \( G \) containing all \( v \in V(G) \) exactly once
+  \item \textbf{Hamiltonian graph}: graph containing Hamiltonian cycle
+  \item \textbf{Hamiltonian path}: Path on \( G \) containing all \( v \in V(G) \) exactly once
+  \item \textbf{Square} of graph \( G \): \( G^2 \coloneqq (V,E') \) with \( E' \coloneqq \left \{ uv: u,v \in V, d_G(u,v) \leq 2 \right \} \)
+\end{itemize}
+
+\paragraph{Results}
+\begin{itemize}
+  \item \textbf{Necessary condition}: \( G \) has Hamiltonian cycle \( \Rightarrow \forall \varnothing \neq S \subseteq V \): graph \( G - S \) cannot have more than \( \left\vert S \right\vert \) components
+  \item \textbf{Dirac}: Every graph with \( \left\vert G \right\vert \geq 3 \) and \( \delta(G) \geq \tfrac{n}{2} \) has Hamiltonian cycle
+  \item \textbf{Clique}: Every graph with \( \left\vert G \right\vert \geq 3 \) with \( \alpha(G) \leq \kappa(G) \) is Hamiltonian
+  \item \textbf{Fleischner}: \( G \) is \( 2 \)-connected \( \Rightarrow G^2 \) is Hamiltonian
+  \item \textbf{Chvátal}: graph with degree sequence \( a_1,\dots,a_n \) is Hamiltonian \( \Leftrightarrow a_i \leq i \) implies \( a_{n-i} \geq n -1 \) (\( \forall i < n/2 \), \( 0 \leq a_1 \leq \cdots \leq a_n < n \))
+\end{itemize}
