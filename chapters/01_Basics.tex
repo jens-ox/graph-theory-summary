@@ -2,16 +2,16 @@
 
 \paragraph{Notations}
 \begin{itemize}
-  \item $ \left( \begin{smallmatrix}
+  \item \( \left( \begin{smallmatrix}
     V \\ k
-  \end{smallmatrix} \right) \coloneqq \{ A : A \subseteq V \wedge \vert A \vert = k \} $
-  \item $ [n] \coloneqq \{ 1, \dots, n \} \subset \N $
-  \item \textbf{Power set} $ 2^X \coloneqq \{ A : A \subseteq X \} $
+  \end{smallmatrix} \right) \coloneqq \{ A : A \subseteq V \wedge \vert A \vert = k \} \)
+  \item \( [n] \coloneqq \{ 1, \dots, n \} \subset \N \)
+  \item \textbf{Power set} \( 2^X \coloneqq \{ A : A \subseteq X \} \)
 \end{itemize}
 
 \paragraph{Graphs}
 \begin{itemize}
-  \item \textbf{Definition}: $ G = (V,E) $ with  $ E \subseteq V^2 $, $ V \cap E = \varnothing $
+  \item \textbf{Definition}: \( G = (V,E) \) with  $ E \subseteq V^2 $, $ V \cap E = \varnothing $
   \item \textbf{Vertex}: $ v \in V $ for graph $ G = (V,E) $
   \begin{itemize}
     \item $ v $ \emph{incident with} $ e \Leftrightarrow v \in e $  
@@ -184,7 +184,7 @@
     \item[$ \leadsto $] any two vertices can be joined by $ k $ independent paths
   \end{itemize}
   \item \textbf{k-linked}: if for any $ 2k $ vertices $ (s_1, \dots, s_k, t_1, \dots, t_k) \ \exists $ pairwise disjoint $ s_it_i $-paths (\emph{note}: $ k $-connected $ \not \Rightarrow k $-linked)
-  \item \textbf{Connectivity}: $ \kappa(G) = \max\{ k : G \text{ is $ k $-connected} \} $
+  \item \textbf{Connectivity}: \( \kappa(G) = \max \{ k : G \text{ is \( k \)-connected} \} \)
   \item \textbf{l-edge-connected}: if $ \vert G \vert > 1 \wedge G - F $ is connected $ \forall F \subseteq E(G) $ with $ \vert F \vert < l $
   \item \textbf{Edge-connectivity}: $ \kappa'(G) = \lambda(G) = \max\{ l : G \text{ is $ l $-edge-connected} \} $
   \item \textbf{Connectivity and smallest degree}: $ \kappa(G) \leq \kappa'(G) \leq \delta(G) $
@@ -239,13 +239,13 @@
     \item \emph{branch vertices}: original vertices of $ H $
     \item \emph{subdividing vertices}: vertices placed on edges joining branch vertices
   \end{itemize}
-  \item \textbf{MH}: $ G \overset{(\star)}{=} MH $ is \emph{minor} of $ H $ if
+  \item \textbf{MH}: $ G \overset{(\ast)}{=} MH $ is \emph{minor} of $ H $ if
   \begin{itemize}
     \item $ V(G) = V_1 \overset{\cdot}{\cup} \cdots \overset{\cdot}{\cup} V_n $ with $ n = \vert H \vert $
     \item $ G[V_i] $ connected ($ \forall i = 1, \dots, n $)
     \item If $ V(H) = \{ v_1, \dots, v_n \} $ and $ v_iv_j \in E(H) $, then $ \exists $ edge between $ V_i $ and $ V_j $
   \end{itemize}
-  $ (\star) $: \emph{Notation abuse}: $ MH $ is class of graphs
+  $ (\ast) $: \emph{Notation abuse}: $ MH $ is class of graphs
   \item \textbf{Branch sets}: $ V_i $'s from above
   \item \textbf{Extended branch graph}: Branch set together with incident edges
   \item \textbf{Minor} ($ H $ of $ G $, noted $ H \preccurlyeq G $): $ \Leftrightarrow MH \subseteq G $ \\*
