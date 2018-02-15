@@ -1,0 +1,65 @@
+\section{Flows}
+
+\paragraph{Circulations}
+\begin{itemize}
+  \item \textbf{Circulation}:
+  \begin{itemize}
+    \item \( H \coloneqq \) abelian semigroup, \( G \) multigraph, \( \widetilde{E} \coloneqq \left \{ (x,y) : xy \in E(G) \right \} \)
+    \item \( f: \widetilde{E} \to H \), \( X,Y \subseteq V \) \( \leadsto \) \( f(X,Y) \coloneqq \sum_{(x,y) \in (X \times Y)\cap\widetilde{E}}f(x,y) \)
+    \item \( f: \widetilde{E} \to H \) is \emph{circulation} on \( G \) \( \Leftrightarrow \)
+    \begin{enumerate}
+      \item \( f(x,y) = -f(y,x) \) (\( \forall xy \in E(G) \)),
+      \item \( f(v,V) = 0 \) (\( \forall v \in v \)).
+    \end{enumerate}
+  \end{itemize}
+  \item \textbf{H-flow}: circulation \( f: \widetilde{E} \to H \) with abelian \emph{group} \( H \)
+  \item \textbf{nowhere-zero-flow}: \( \forall xy \in E : f(x,y) \neq 0 \)
+  \item \textbf{k-flow}: \( \Z \)-flow \( f \) with \( \forall xy \in E : 0 < \left\vert f(x,y) \right\vert < k \) 
+  \item \textbf{flow number} \( \phi(G) \): \( \min\left \{ k \in \N : G \text{ has \( k \)-flow} \right \} \)
+\end{itemize}
+
+\paragraph{Networks}
+\begin{itemize}
+  \item \textbf{Network}:
+  \begin{itemize}
+    \item \( s,t \in V \), \( s \neq t \), \( c: \widetilde{E} \to \N_0 \)
+    \item \emph{network} \( \left( G,s,t,c \right) \) with
+    \begin{itemize}
+      \item \emph{source} \( s \)
+      \item \emph{sink} \( t \)
+      \item \emph{capacity function} \( c \)
+    \end{itemize}
+  \end{itemize}
+  \item \textbf{Network flow}: \( f: \widetilde{E} \to \R \) with \( \forall x,y \in V \):
+  \begin{enumerate}
+    \item \( f(x,y) = -f(y,x) \)
+    \item \( x \not \in \left \{ s,t \right \} \Rightarrow f(x,V) = 0 \)
+    \item \( f(x,y) \leq c(x,y) \)
+  \end{enumerate}
+  \item \textbf{Cut}: \( (S, V \setminus S) \) with \( s \in S \), \( t \not \in S \) (for any \( S \subseteq V \))
+  \begin{itemize}
+    \item \emph{capacpity} \( c(S,V \setminus S) \)
+  \end{itemize}
+  \item \textbf{Value} of \( f \): \( = \left\vert f \right\vert \coloneqq f(s,V) \)
+  \item \textbf{Basic network properties}:
+  \begin{itemize}
+    \item \( \forall \) circulation \( f \), \( X \subseteq V \): \( f(X,X) = f(X,V) = f(X, V \setminus X) = 0 \)
+    \item \( \forall \) network flow \( f \), cut \( S,\overline{S} \): \( f(S,\overline{S}) = \left\vert f \right\vert \)
+  \end{itemize}
+  \item \textbf{Ford-Fulkerson}: \( \forall \) networks:
+  \begin{itemize}
+    \item max value of a flow = min capacity of a cut
+    \item \( \exists \) integral flow \( f: \widetilde{E} \to \N_0 \) with max flow value
+  \end{itemize}
+  \item \textbf{Tutte}: \( \forall \) multigraph \( G \) \( \exists \) polynomial \( P \in \Z[X] : \forall \) finite Abelian group \( H \): number of nowhere-zero \( H \)-flows on \( G \) is \( P \left( \left\vert H \right\vert - 1 \right) \)
+  \item \textbf{Abelian group can be exchanged}: \( H \)-flow on \( G \) exists (Abelian group \( H \)) \( \Rightarrow \exists \ \widetilde{H} \)-flow on \( G \) (\( \forall \) finite Abelian groups \( \widetilde{H} \) with \( \vert \widetilde{H} \vert = \left\vert H \right\vert \))
+  \begin{itemize}
+    \item[\( \leadsto \)] \( \Z_4 \)-flow exists \( \Rightarrow \Z_2 \times \Z_2 \)-flow exists
+  \end{itemize}
+  \item \textbf{Flow can be \( \Z_k \)-substituted}: multigraph admits \( k \)-flow \( \Leftrightarrow \) admits \( \Z_k \)-flow
+  \item \textbf{Flows in planar graphs}: planar graph \( G \), dual \( G^\ast \): \( \chi(G) = \phi(G^\ast) \)
+  \item \textbf{2-flow only on even degrees}: graph has \( 2 \)-flow \( \Leftrightarrow \) all degrees are even
+  \item \textbf{3-flow on bipartite graphs}: \( 3 \)-regular graph has \( 3 \)-flow \( \Leftrightarrow \) bipartite
+  \item \textbf{Tutte on 5-flows}: every bridgeless multigraph has flow number \( \leq 5 \)
+  \item \textbf{Seymour on 6-flows}: every brigeless graph has flow number \( \leq 6 \)
+\end{itemize}
